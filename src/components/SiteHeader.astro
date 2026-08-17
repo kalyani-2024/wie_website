@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import wieMark from '../assets/wie-mark.png';
+import { nav, type NavLabel } from '../site';
+
+interface Props {
+  /** Current page — coloured #D8A7F0 in the nav. Omitted on Home. */
+  current?: NavLabel;
+  /** Home lays the header over the hero photo; subpages get a flat bar. */
+  variant?: 'solid' | 'hero';
+}
+
+const { current, variant = 'solid' } = Astro.props;
+---
+
+<header class:list={['site-head', `site-head--${variant}`]}>
+  <a class="brand" href="/">
+    <Image src={wieMark} alt="IEEE WIE BPDC" width={40} densities={[1, 2]} />
+    <span>WIE <b>BPDC</b></span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    {
+      nav.map((item) => (
+        <a href={item.href} aria-current={item.label === current ? 'page' : undefined}>
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+</header>

@@ -1,0 +1,142 @@
+---
+import Base from '../layouts/Base.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import PageHero from '../components/PageHero.astro';
+import PosterCard from '../components/PosterCard.astro';
+
+import escape2 from '../assets/photos/escape-2.jpg';
+import beyondTheDegree from '../assets/posters/beyond-the-degree.png';
+import escapeRoom from '../assets/posters/escape-room.png';
+import unsungHeroes from '../assets/posters/unsung-heroes.jpg';
+import techTaboo from '../assets/posters/tech-taboo.png';
+import lostCode from '../assets/posters/lost-code.jpg';
+import btfXWie from '../assets/posters/btf-x-wie.png';
+
+/* Model an event as title / kicker / description / poster, per the handoff —
+   ready to move to a CMS or JSON feed without touching the markup. */
+const pastEvents = [
+  {
+    poster: beyondTheDegree,
+    posterAlt: 'Beyond the Degree poster',
+    kicker: 'Industry · Oct 2025',
+    title: 'Beyond the Degree',
+    description:
+      'Turning classroom knowledge into career confidence, with TÜV Rheinland engineers.',
+  },
+  {
+    poster: escapeRoom,
+    posterAlt: 'The Final Experiment poster',
+    kicker: 'Competition · Sep 2025',
+    title: 'The Final Experiment',
+    description: 'An escape room quest — one missing scientist, teams of two to three.',
+  },
+  {
+    poster: unsungHeroes,
+    posterAlt: 'Unsung HERoes campaign poster',
+    kicker: 'Campaign · 3-day series',
+    title: 'Unsung HERoes',
+    description: 'The women of STEM history the syllabus leaves out, one story a day.',
+  },
+  {
+    poster: techTaboo,
+    posterAlt: 'Tech Taboo poster',
+    kicker: 'Competition · [Date placeholder]',
+    title: 'Tech Taboo',
+    description: 'A guessing game built on engineering vocabulary. [Details placeholder]',
+  },
+  {
+    poster: lostCode,
+    posterAlt: 'The Lost Code poster',
+    kicker: 'Collaboration · [Date placeholder]',
+    title: 'The Lost Code',
+    description: 'A joint event with IEI. [Details placeholder]',
+  },
+  {
+    poster: btfXWie,
+    posterAlt: 'BTF x WIE poster',
+    kicker: 'Outreach · Nov 2025',
+    title: 'BTF × WIE',
+    description:
+      'A collaborative drive taking engineering outside the campus gates. [Details placeholder]',
+  },
+];
+
+const alsoHeld = [
+  { category: 'Workshop', name: 'Promptverse — Gen AI workshop', date: 'Nov 2025' },
+  { category: 'Membership', name: 'Membership drive', date: '[Date placeholder]' },
+  { category: '[Category]', name: '[Event placeholder]', date: '[Date placeholder]' },
+];
+---
+
+<Base
+  title="Events — IEEE WIE BPDC"
+  description="Every workshop, competition, campaign and outreach drive run by the IEEE WIE chapter at BITS Pilani, Dubai Campus."
+>
+  <SiteHeader current="Events" />
+
+  <main id="main">
+    <PageHero photo={escape2} eyebrow="Events" wide>
+      Everything we have run, on the record.
+    </PageHero>
+
+    <section class="section wrap" style="padding-block: 84px 0;">
+      <h2 class="h2 h2--sm h2-rule" style="margin-bottom: 26px;">Coming up</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;" class="two-up">
+        {
+          [0, 1].map(() => (
+            <article class="panel panel--event">
+              <p class="card-kicker" style="margin: 0 0 12px;">
+                [Category placeholder] · [Date placeholder]
+              </p>
+              <h3
+                style="margin: 0 0 12px; font-family: var(--display); font-weight: 400; font-size: 30px;"
+              >
+                [Upcoming event placeholder]
+              </h3>
+              <p class="body-sm" style="margin-bottom: 22px; font-size: 16px;">
+                One-line description of the session, who it is for, and what members will
+                leave with. Venue and timing to be announced.
+              </p>
+              <a class="link-ul link-ul--sm" href="/join/">
+                Register interest →
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section wrap" style="padding-block: 84px 92px;">
+      <h2 class="h2 h2--sm h2-rule" style="margin-bottom: 40px;">Past events</h2>
+      <div class="grid-3" style="gap: 32px 24px; align-items: start;">
+        {pastEvents.map((event) => <PosterCard {...event} />)}
+      </div>
+    </section>
+
+    <section class="section section--ruled">
+      <div class="wrap">
+        <h2 class="h2 h2--sm" style="margin-bottom: 30px;">Also held</h2>
+        {
+          alsoHeld.map((event) => (
+            <div class="row-index">
+              <span class="cat">{event.category}</span>
+              <span class="name">{event.name}</span>
+              <span class="date">{event.date}</span>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</Base>
+
+<style>
+  @media (max-width: 860px) {
+    .two-up {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>

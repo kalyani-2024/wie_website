@@ -1,0 +1,156 @@
+---
+import Base from '../layouts/Base.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { FORM_URL } from '../site';
+
+import btf1 from '../assets/photos/btf-1.jpg';
+import escape1 from '../assets/photos/escape-1.jpg';
+
+const benefits = [
+  {
+    title: 'Every session',
+    copy: 'First access to workshops, competitions and industry panels, including the ones that fill up.',
+  },
+  {
+    title: 'Mentorship',
+    copy: 'Introductions to seniors and industry engineers who answer questions the syllabus does not.',
+  },
+  {
+    title: 'A way in',
+    copy: 'Run an event, design a campaign, or stand for the council next year. Members get first call.',
+  },
+];
+
+const steps = [
+  {
+    num: '01',
+    title: 'Fill the form',
+    copy: 'Name, branch, year and a contact number. It takes under two minutes.',
+  },
+  {
+    num: '02',
+    title: 'Join the group',
+    copy: 'We add you to the announcements group, where every session goes out first. [Channel placeholder]',
+  },
+  {
+    num: '03',
+    title: 'Turn up',
+    copy: 'Come to the next session. Nothing else is required, and there is no membership fee. [Confirm fee policy]',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Do I have to be a woman to join?',
+    a: 'No. Our focus is women in engineering, and our membership and sessions are open to every student on campus.',
+  },
+  {
+    q: 'Do I need an IEEE membership?',
+    a: 'Not to attend our sessions. An IEEE membership adds access to the wider network. [Confirm policy placeholder]',
+  },
+  {
+    q: 'Which years can join?',
+    a: 'Any. First years are especially welcome — most of what we run was built for the questions you have now.',
+  },
+  {
+    q: 'How much time does it take?',
+    a: 'As much as you want. Members attend what interests them; only council roles carry a commitment.',
+  },
+];
+---
+
+<Base
+  title="Join us — IEEE WIE BPDC"
+  description="Membership in the IEEE WIE chapter at BITS Pilani, Dubai Campus is open to every student on campus, at any year and any branch."
+>
+  <SiteHeader current="Join" />
+
+  <main id="main">
+    <PageHero photo={btf1} eyebrow="Membership · Open now" tall>
+      Come build with us.
+      <Fragment slot="below">
+        <p class="lead-dark" style="margin: 30px 0 36px; max-width: 52ch;">
+          Open to every student on campus, at any year of study and any branch. One form,
+          and you are on the list for everything we run this semester.
+        </p>
+        <a class="btn-light" href={FORM_URL}>Open the membership form →</a>
+        <p
+          style="margin: 18px 0 0; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: rgba(242,233,247,.5);"
+        >
+          [Google Form link placeholder]
+        </p>
+      </Fragment>
+    </PageHero>
+
+    <section class="section wrap">
+      <h2 class="h2 h2--sm h2-rule" style="margin-bottom: 40px;">What membership gets you</h2>
+      <div class="grid-3">
+        {
+          benefits.map((benefit) => (
+            <article class="panel">
+              <p class="panel-title">{benefit.title}</p>
+              <p class="body-sm" style="line-height: 1.64;">
+                {benefit.copy}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section section--ruled">
+      <div class="wrap two-col">
+        <div>
+          <p class="eyebrow">How it works</p>
+          <h2 class="h2 h2--md">Three steps, and you are in.</h2>
+        </div>
+        <div>
+          {
+            steps.map((step) => (
+              <div class="row-step">
+                <p class="num">{step.num}</p>
+                <div>
+                  <p
+                    style="margin: 0 0 6px; font-family: var(--display); font-size: 22px;"
+                  >
+                    {step.title}
+                  </p>
+                  <p class="body-sm">{step.copy}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--ruled">
+      <div class="wrap two-col">
+        <div>
+          <p class="eyebrow">Questions we get</p>
+          <h2 class="h2 h2--md">Before you ask.</h2>
+        </div>
+        <dl style="margin: 0;">
+          {
+            faqs.map((faq) => (
+              <div class="row-q">
+                <dt>{faq.q}</dt>
+                <dd>{faq.a}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </section>
+
+    <CtaBand photo={escape1} narrow>
+      <h2 class="h2-dark h2-dark--sm">Membership is open now.</h2>
+      <a class="btn-light" href={FORM_URL} style="margin-top: 32px;">Membership form →</a>
+    </CtaBand>
+  </main>
+
+  <SiteFooter />
+</Base>

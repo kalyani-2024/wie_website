@@ -1,0 +1,135 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+import genai1 from '../assets/photos/genai-1.jpg';
+import genai2 from '../assets/photos/genai-2.jpg';
+import genai3 from '../assets/photos/genai-3.jpg';
+import escape1 from '../assets/photos/escape-1.jpg';
+import escape2 from '../assets/photos/escape-2.jpg';
+import escape3 from '../assets/photos/escape-3.jpg';
+import btf1 from '../assets/photos/btf-1.jpg';
+import btf2 from '../assets/photos/btf-2.jpg';
+import btf3 from '../assets/photos/btf-3.jpg';
+
+const sizes = '(max-width: 860px) 92vw, 45vw';
+---
+
+<Base
+  title="Gallery — IEEE WIE BPDC"
+  description="Photographs from IEEE WIE BPDC events: the Promptverse Gen AI workshop, The Final Experiment escape room, and the BTF × WIE outreach drive."
+>
+  <SiteHeader current="Gallery" />
+
+  <main id="main">
+    <PageHero photo={btf3} eyebrow="Gallery">The room, as it looks.</PageHero>
+
+    <section class="section wrap" style="padding-block: 84px 40px;">
+      <div class="gallery-head">
+        <h2 class="h2 h2--sm">Promptverse — Gen AI workshop</h2>
+        <p class="gallery-date">Nov 2025</p>
+      </div>
+      <div class="gallery-grid">
+        <Image
+          src={genai1}
+          alt="Members at the Gen AI workshop"
+          widths={[640, 1000, 1400]}
+          sizes={sizes}
+          class="span-3 ar-3-2"
+        />
+        <Image
+          src={genai3}
+          alt="Workshop group photo"
+          widths={[640, 1000, 1400]}
+          sizes={sizes}
+          class="span-3 ar-3-2"
+        />
+        <Image
+          src={genai2}
+          alt="A session in progress"
+          widths={[440, 700, 1000]}
+          sizes={sizes}
+          class="span-2 ar-4-3"
+        />
+        <div class="tile span-2 ar-4-3">Photo placeholder</div>
+        <div class="tile span-2 ar-4-3">Photo placeholder</div>
+      </div>
+    </section>
+
+    <section class="section wrap" style="padding-block: 44px 40px;">
+      <div class="gallery-head">
+        <h2 class="h2 h2--sm">The Final Experiment — escape room</h2>
+        <p class="gallery-date">Sep 2025</p>
+      </div>
+      <div class="gallery-grid">
+        <Image
+          src={escape1}
+          alt="Teams working through the escape room"
+          widths={[800, 1200, 1600]}
+          sizes={sizes}
+          class="span-4 ar-2-1"
+        />
+        <div class="span-2 frame">
+          <Image
+            src={escape2}
+            alt="Participants at a puzzle station"
+            widths={[440, 700, 1000]}
+            sizes={sizes}
+            class="frame-img"
+          />
+        </div>
+        <Image
+          src={escape3}
+          alt="The escape room set"
+          widths={[440, 700, 1000]}
+          sizes={sizes}
+          class="span-2 ar-4-3"
+        />
+        <div class="tile span-2 ar-4-3">Photo placeholder</div>
+        <div class="tile span-2 ar-4-3">Photo placeholder</div>
+      </div>
+    </section>
+
+    <section class="section wrap" style="padding-block: 44px 92px;">
+      <div class="gallery-head">
+        <h2 class="h2 h2--sm">BTF × WIE — outreach drive</h2>
+        <p class="gallery-date">Nov 2025</p>
+      </div>
+      <div class="gallery-grid">
+        <Image
+          src={btf1}
+          alt="The WIE stall at the outreach drive"
+          widths={[640, 1000, 1400]}
+          sizes={sizes}
+          class="span-3 ar-3-2"
+        />
+        <Image
+          src={btf2}
+          alt="Volunteers with visitors"
+          widths={[640, 1000, 1400]}
+          sizes={sizes}
+          class="span-3 ar-3-2"
+        />
+        <Image
+          src={btf3}
+          alt="Setting up the stall"
+          widths={[440, 700, 1000]}
+          sizes={sizes}
+          class="span-2 ar-4-3"
+        />
+        <div class="tile span-4 ar-8-3">Photo placeholder — drop more album photos here</div>
+      </div>
+    </section>
+
+    <CtaBand photo={genai3} size="gallery" narrow>
+      <h2 class="h2-dark h2-dark--xs">Be in the next set of photos.</h2>
+      <a class="btn-light" href="/join/" style="margin-top: 30px;">Become a member →</a>
+    </CtaBand>
+  </main>
+
+  <SiteFooter />
+</Base>

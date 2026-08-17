@@ -1,0 +1,110 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import PageHero from '../components/PageHero.astro';
+
+import genai3 from '../assets/photos/genai-3.jpg';
+import wieMark from '../assets/wie-mark.png';
+
+/* No portraits exist yet — every plate centres the WIE mark as the
+   placeholder. Swap `photo` in once the council supplies real images. */
+const coreTeam = [
+  { role: 'Chair' },
+  { role: 'Vice chair' },
+  { role: 'Secretary' },
+  { role: 'Treasurer' },
+];
+
+const leads = [
+  { role: 'Events lead' },
+  { role: 'Design lead' },
+  { role: 'Outreach lead' },
+  { role: 'Technical lead' },
+];
+---
+
+<Base
+  title="Council — IEEE WIE BPDC"
+  description="The elected council of the IEEE Women in Engineering chapter at BITS Pilani, Dubai Campus."
+>
+  <SiteHeader current="Council" />
+
+  <main id="main">
+    <PageHero photo={genai3} eyebrow="The council · [Term placeholder]">
+      Who runs the chapter.
+    </PageHero>
+
+    <section class="section wrap" style="padding-block: 84px 0;">
+      <p class="body" style="max-width: 60ch; margin-bottom: 40px;">
+        The council is elected each academic year and runs every session, campaign and
+        collaboration on this site. Portraits will be added once supplied.
+      </p>
+      <h2 class="h2 h2--xs h2-rule" style="margin-bottom: 30px;">Core team</h2>
+      <div class="grid-4">
+        {
+          coreTeam.map((person) => (
+            <article>
+              <div class="portrait">
+                <Image src={wieMark} alt="Portrait placeholder" width={200} densities={[1, 2]} />
+              </div>
+              <p class="person-name">[Name placeholder]</p>
+              <p class="person-role">{person.role}</p>
+              <p class="person-meta">[Degree and year placeholder]</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section wrap" style="padding-block: 64px 92px;">
+      <h2 class="h2 h2--xs h2-rule" style="margin-bottom: 30px;">Leads</h2>
+      <div class="grid-4">
+        {
+          leads.map((person) => (
+            <article>
+              <div class="portrait">
+                <Image src={wieMark} alt="Portrait placeholder" width={200} densities={[1, 2]} />
+              </div>
+              <p class="person-name">[Name placeholder]</p>
+              <p class="person-role" style="margin-bottom: 0;">
+                {person.role}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section section--ruled">
+      <div class="wrap two-col">
+        <div>
+          <p class="eyebrow">Faculty advisor</p>
+          <h2 class="h2" style="font-size: clamp(26px, 3.2vw, 42px); line-height: 1.14;">
+            [Faculty advisor name placeholder]
+          </h2>
+          <p
+            class="body"
+            style="margin-top: 18px; font-size: 16.5px; line-height: 1.7; color: rgba(26,18,32,.74);"
+          >
+            [Department and title placeholder]
+          </p>
+        </div>
+        <div>
+          <p class="eyebrow">Join the council</p>
+          <p
+            class="body"
+            style="margin-bottom: 26px; font-size: 16.5px; line-height: 1.7; color: rgba(26,18,32,.74);"
+          >
+            Council positions open once each academic year and are filled from the active
+            membership. Members are notified before applications open.
+          </p>
+          <a class="btn-outline" href="/join/">Become a member first →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</Base>

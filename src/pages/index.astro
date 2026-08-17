@@ -1,0 +1,190 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import CtaBand from '../components/CtaBand.astro';
+import PosterCard from '../components/PosterCard.astro';
+import { FORM_URL, placeholders } from '../site';
+
+import genai1 from '../assets/photos/genai-1.jpg';
+import genai2 from '../assets/photos/genai-2.jpg';
+import genai3 from '../assets/photos/genai-3.jpg';
+import escape1 from '../assets/photos/escape-1.jpg';
+import escape3 from '../assets/photos/escape-3.jpg';
+import btf1 from '../assets/photos/btf-1.jpg';
+import btf2 from '../assets/photos/btf-2.jpg';
+import btf3 from '../assets/photos/btf-3.jpg';
+
+import beyondTheDegree from '../assets/posters/beyond-the-degree.png';
+import escapeRoom from '../assets/posters/escape-room.png';
+import unsungHeroes from '../assets/posters/unsung-heroes.jpg';
+
+/* One 26s loop, each frame offset by -6.5s, so exactly one photo is at
+   full opacity at a time and its caption changes with it. */
+const slides = [
+  {
+    photo: genai3,
+    alt: 'Members at the Promptverse Gen AI workshop',
+    caption: 'Promptverse — Gen AI workshop, Nov 2025',
+    delay: '0s',
+  },
+  {
+    photo: escape1,
+    alt: 'Teams at The Final Experiment escape room',
+    caption: 'The Final Experiment — escape room, Sep 2025',
+    delay: '-19.5s',
+  },
+  {
+    photo: btf1,
+    alt: 'Volunteers at the BTF x WIE outreach drive',
+    caption: 'BTF × WIE — outreach drive, Nov 2025',
+    delay: '-13s',
+  },
+  {
+    photo: genai1,
+    alt: 'A workshop session in progress',
+    caption: 'Workshop floor — [event placeholder]',
+    delay: '-6.5s',
+  },
+];
+
+const stats = [
+  { value: placeholders.members, label: 'Members' },
+  { value: placeholders.eventsRun, label: 'Events run' },
+  { value: placeholders.partners, label: 'Partners' },
+  { value: placeholders.founded, label: 'Founded' },
+];
+
+const events = [
+  {
+    poster: beyondTheDegree,
+    posterAlt: 'Beyond the Degree poster',
+    kicker: 'Industry · Oct 2025',
+    title: 'Beyond the Degree',
+    description:
+      'Turning classroom knowledge into career confidence, with TÜV Rheinland engineers.',
+  },
+  {
+    poster: escapeRoom,
+    posterAlt: 'The Final Experiment poster',
+    kicker: 'Competition · Sep 2025',
+    title: 'The Final Experiment',
+    description: 'An escape room quest, teams of two to three.',
+  },
+  {
+    poster: unsungHeroes,
+    posterAlt: 'Unsung HERoes campaign',
+    kicker: 'Campaign · 3 days',
+    title: 'Unsung HERoes',
+    description: 'The women of STEM history the syllabus leaves out.',
+  },
+];
+---
+
+<Base
+  title="IEEE WIE BPDC — Women in Engineering, BITS Pilani Dubai Campus"
+  description="The IEEE Women in Engineering student chapter at BITS Pilani, Dubai Campus: workshops, competitions, industry rooms and outreach, open to every student on campus."
+>
+  <section class="hero">
+    <div class="band-media">
+      {
+        slides.map((slide) => (
+          <Image
+            src={slide.photo}
+            alt={slide.alt}
+            widths={[900, 1400, 1920, 2400]}
+            sizes="100vw"
+            class="hero-slide"
+            style={`--delay: ${slide.delay};`}
+          />
+        ))
+      }
+      <div class="duo-color"></div>
+      <div class="duo-grad--hero"></div>
+    </div>
+
+    <SiteHeader variant="hero" />
+
+    <div class="hero-copy" id="main">
+      <p class="eyebrow-dark" style="margin-bottom: 28px;">
+        IEEE Women in Engineering · BITS Pilani, Dubai Campus
+      </p>
+      <h1 class="h1-hero">
+        The women<br />engineering<br />what comes next.
+      </h1>
+      <p class="lead-dark">
+        A student chapter that runs the labs, competitions and industry rooms our members
+        needed — and keeps the door open to the whole campus.
+      </p>
+      <div style="display: flex; gap: 34px; align-items: center; margin-top: 40px; flex-wrap: wrap;">
+        <a class="btn-light btn-light--hero" href="/join/">Become a member</a>
+        <a class="link-ul-dark" href="/events/">See our events</a>
+      </div>
+    </div>
+
+    <div class="hero-foot">
+      <p class="caption-line">
+        {
+          slides.map((slide) => (
+            <span style={`--delay: ${slide.delay};`}>{slide.caption}</span>
+          ))
+        }
+      </p>
+      <div class="stats">
+        {
+          stats.map((stat) => (
+            <div>
+              <p class="stat-value">{stat.value}</p>
+              <p class="stat-label">{stat.label}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="two-col two-col--center wrap" style="padding: 108px var(--gutter);">
+    <div>
+      <p class="eyebrow">Why we exist</p>
+      <h2 class="h2">Women arrive in engineering in numbers. Far fewer of them stay.</h2>
+      <p class="body" style="margin-top: 26px;">
+        Our chapter is the correction we could build ourselves: the skills the syllabus
+        skips, mentors close enough to argue with, and a record of work that outlasts each
+        graduating batch. [Mission statement placeholder.]
+      </p>
+      <a class="link-ul" href="/about/" style="margin-top: 30px;">Read our mission →</a>
+    </div>
+    <div class="photo-grid">
+      <Image src={escape3} alt="Escape room event" widths={[400, 640, 900]} sizes="(max-width: 860px) 45vw, 25vw" />
+      <Image src={btf2} alt="Outreach drive" widths={[400, 640, 900]} sizes="(max-width: 860px) 45vw, 25vw" />
+      <Image src={genai2} alt="Workshop session" widths={[400, 640, 900]} sizes="(max-width: 860px) 45vw, 25vw" />
+      <Image src={btf3} alt="Outreach volunteers" widths={[400, 640, 900]} sizes="(max-width: 860px) 45vw, 25vw" />
+    </div>
+  </section>
+
+  <section class="section section--ruled" style="padding-block: 92px;">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="h2 h2--lg">Selected events</h2>
+        <a class="link-plum" href="/events/">Full archive →</a>
+      </div>
+      <div class="grid-3" style="align-items: start;">
+        {events.map((event) => <PosterCard {...event} />)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand photo={btf1} size="home">
+    <h2 class="h2-dark">Membership is open to every student on campus.</h2>
+    <p
+      class="lead-dark"
+      style="margin: 22px auto 34px; max-width: none; font-size: 17px; line-height: 1.65;"
+    >
+      One form, and you are on the list for everything we run this semester.
+    </p>
+    <a class="btn-light" href={FORM_URL}>Membership form →</a>
+  </CtaBand>
+
+  <SiteFooter />
+</Base>

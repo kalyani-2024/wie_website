@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  poster: ImageMetadata;
+  posterAlt: string;
+  kicker: string;
+  title: string;
+  description: string;
+}
+
+const { poster, posterAlt, kicker, title, description } = Astro.props;
+---
+
+<article>
+  {/* object-fit: contain — the posters are the chapter's own artwork at
+      mixed ratios and must never be cropped. */}
+  <div class="plate">
+    <Image src={poster} alt={posterAlt} widths={[400, 640, 900]} sizes="(max-width: 860px) 90vw, 30vw" />
+  </div>
+  <p class="card-kicker">{kicker}</p>
+  <h3 class="card-title">{title}</h3>
+  <p class="card-desc">{description}</p>
+</article>

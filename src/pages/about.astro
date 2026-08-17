@@ -1,0 +1,165 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { placeholders } from '../site';
+
+import bitsLogo from '../assets/bits-logo.png';
+import wieMark from '../assets/wie-mark.png';
+import genai1 from '../assets/photos/genai-1.jpg';
+import genai2 from '../assets/photos/genai-2.jpg';
+import escape2 from '../assets/photos/escape-2.jpg';
+import btf1 from '../assets/photos/btf-1.jpg';
+import btf2 from '../assets/photos/btf-2.jpg';
+
+const stats = [
+  { value: placeholders.members, label: 'Active members' },
+  { value: placeholders.eventsRun, label: 'Events run' },
+  { value: placeholders.partners, label: 'Industry partners' },
+  { value: placeholders.founded, label: 'Chapter founded' },
+];
+
+const pillars = [
+  {
+    photo: genai2,
+    alt: 'A workshop session',
+    title: 'Skills',
+    copy: 'Hands-on workshops in the tools the syllabus does not cover, taught by members and industry engineers.',
+  },
+  {
+    photo: escape2,
+    alt: 'A competition in progress',
+    title: 'Visibility',
+    copy: 'Campaigns and competitions that put women engineers — historical and present — on the record.',
+  },
+  {
+    photo: btf2,
+    alt: 'An outreach drive',
+    title: 'Network',
+    copy: 'Industry rooms, mentorship and outreach that keep answering after graduation.',
+  },
+];
+---
+
+<Base
+  title="About — IEEE WIE BPDC"
+  description="Why the IEEE Women in Engineering chapter at BITS Pilani, Dubai Campus exists, what we run, and how we are affiliated."
+>
+  <SiteHeader current="About" />
+
+  <main id="main">
+    <PageHero photo={genai1} eyebrow="About the chapter">
+      We build the room we needed.
+    </PageHero>
+
+    <section class="section wrap two-col" style="padding-block: 96px;">
+      <div>
+        <p class="eyebrow">Mission</p>
+        <h2 class="h2">Women arrive in engineering in numbers. Far fewer of them stay.</h2>
+      </div>
+      <div>
+        <p class="lead">
+          Our chapter is the correction we could build ourselves: the skills the syllabus
+          skips, mentors close enough to argue with, and a record of work that outlasts
+          each graduating batch.
+        </p>
+        <p class="body">
+          We are an affinity group of IEEE Women in Engineering, one of the largest
+          international networks of women engineers. Every session we run is open to the
+          whole campus, at any year of study.
+        </p>
+        <p class="body">
+          [Mission statement placeholder — replace with the council's own wording.]
+        </p>
+      </div>
+    </section>
+
+    <section class="section--ruled">
+      <div class="wrap stat-strip">
+        {
+          stats.map((stat) => (
+            <div>
+              <p class="value">{stat.value}</p>
+              <p class="label">{stat.label}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section section--ruled" style="padding-block: 92px;">
+      <div class="wrap">
+        <h2 class="h2" style="margin-bottom: 48px; font-size: clamp(30px, 4vw, 54px);">
+          What we do
+        </h2>
+        <div class="grid-3">
+          {
+            pillars.map((pillar) => (
+              <article>
+                <Image
+                  src={pillar.photo}
+                  alt={pillar.alt}
+                  widths={[440, 700, 1000]}
+                  sizes="(max-width: 860px) 92vw, 30vw"
+                  class="pillar-img"
+                />
+                <h3
+                  style="margin: 20px 0 8px; font-family: var(--display); font-weight: 400; font-size: 26px;"
+                >
+                  {pillar.title}
+                </h3>
+                <p class="body-sm" style="font-size: 15.5px; line-height: 1.6;">
+                  {pillar.copy}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--ruled" style="padding-block: 92px;">
+      <div class="wrap two-col">
+        <div>
+          <p class="eyebrow">Our affiliation</p>
+          <h2 class="h2 h2--md" style="line-height: 1.14;">
+            Part of a global network, run entirely by students here.
+          </h2>
+        </div>
+        <div>
+          <p class="body" style="margin-bottom: 30px;">
+            IEEE Women in Engineering is an international affinity group of the IEEE. Our
+            chapter operates under [IEEE section placeholder] and is hosted at BITS Pilani,
+            Dubai Campus, under the guidance of [faculty advisor placeholder].
+          </p>
+          <div style="display: flex; align-items: center; gap: 26px;">
+            <Image
+              src={bitsLogo}
+              alt="BITS Pilani, Dubai Campus"
+              height={56}
+              densities={[1, 2]}
+              style="height: 56px; width: auto;"
+            />
+            <Image
+              src={wieMark}
+              alt="IEEE Women in Engineering"
+              height={56}
+              densities={[1, 2]}
+              style="height: 56px; width: auto;"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CtaBand photo={btf1}>
+      <h2 class="h2-dark h2-dark--sm">Membership is open to every student on campus.</h2>
+      <a class="btn-light" href="/join/" style="margin-top: 32px;">How to join →</a>
+    </CtaBand>
+  </main>
+
+  <SiteFooter />
+</Base>

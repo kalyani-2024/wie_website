@@ -1,0 +1,16 @@
+---
+import { Image } from 'astro:assets';
+import bitsLogo from '../assets/bits-logo.png';
+import wieMark from '../assets/wie-mark.png';
+import { placeholders } from '../site';
+---
+
+<footer class="site-foot">
+  <div class="marks">
+    <Image src={bitsLogo} alt="BITS Pilani" height={36} densities={[1, 2]} />
+    <Image src={wieMark} alt="IEEE WIE" height={36} densities={[1, 2]} />
+  </div>
+  <p style="margin: 0;">
+    IEEE WIE BPDC · {placeholders.email} · {placeholders.instagram}
+  </p>
+</footer>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #F7F2F4; }
+  a { color: #1A1220; text-decoration: none; }
+  a:hover { color: #7A2496; }
+  @keyframes gFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+</style>
+</helmet>
+<div style="background: #F7F2F4; color: #1A1220; font-family: 'Jost', sans-serif; overflow-x: hidden;">
+
+  <header style="display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 24px 48px; background: #120A18;">
+    <a href="Home.dc.html" style="display: flex; align-items: center; gap: 13px;">
+      <img src="assets/wie-mark.png" alt="IEEE WIE BPDC" style="width: 40px; height: 40px; object-fit: contain;" />
+      <span style="font-family: 'Gloock', serif; font-size: 19px; letter-spacing: .01em; color: #F2E9F7;">WIE <span style="color: #D8A7F0;">BPDC</span></span>
+    </a>
+    <nav style="display: flex; gap: 32px; font-size: 13px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase;">
+      <a href="About.dc.html" style="color: #F2E9F7;">About</a>
+      <a href="Events.dc.html" style="color: #D8A7F0;">Events</a>
+      <a href="Gallery.dc.html" style="color: #F2E9F7;">Gallery</a>
+      <a href="Council.dc.html" style="color: #F2E9F7;">Council</a>
+      <a href="Contact.dc.html" style="color: #F2E9F7;">Partner</a>
+      <a href="Join.dc.html" style="color: #F2E9F7;">Join</a>
+    </nav>
+  </header>
+
+  <section style="position: relative; overflow: hidden; background: #120A18; padding: 92px 48px 84px; animation: gFade 1s cubic-bezier(.16,.84,.3,1) both;">
+    <img src="assets/photos/escape-2.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+    <div style="position: absolute; inset: 0; background: #4A1263; mix-blend-mode: color; opacity: .82;"></div>
+    <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(18,10,24,.94) 4%, rgba(18,10,24,.62) 50%, rgba(18,10,24,.74));"></div>
+    <div style="position: relative; max-width: 1320px; margin: 0 auto;">
+      <p style="margin: 0 0 24px; font-size: 12px; font-weight: 500; letter-spacing: .34em; text-transform: uppercase; color: #D8A7F0;">Events</p>
+      <h1 style="margin: 0; max-width: 26ch; font-family: 'Gloock', serif; font-weight: 400; font-size: clamp(40px, 6.4vw, 96px); line-height: .98; letter-spacing: -.02em; color: #F2E9F7;">Everything we have run, on the record.</h1>
+    </div>
+  </section>
+
+  <section style="max-width: 1320px; margin: 0 auto; padding: 84px 48px 0;">
+    <h2 style="margin: 0 0 26px; padding-bottom: 18px; border-bottom: 1px solid rgba(26,18,32,.18); font-family: 'Gloock', serif; font-weight: 400; font-size: clamp(28px, 3.4vw, 44px); letter-spacing: -.015em;">Coming up</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <article style="padding: 34px 32px; background: #EDE3EA;">
+        <p style="margin: 0 0 12px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #7A2496;">[Category placeholder] · [Date placeholder]</p>
+        <h3 style="margin: 0 0 12px; font-family: 'Gloock', serif; font-weight: 400; font-size: 30px;">[Upcoming event placeholder]</h3>
+        <p style="margin: 0 0 22px; font-size: 16px; font-weight: 300; line-height: 1.62; color: rgba(26,18,32,.74);">One-line description of the session, who it is for, and what members will leave with. Venue and timing to be announced.</p>
+        <a href="Join.dc.html" style="font-size: 12.5px; letter-spacing: .18em; text-transform: uppercase; border-bottom: 1px solid rgba(26,18,32,.42); padding-bottom: 5px;">Register interest →</a>
+      </article>
+      <article style="padding: 34px 32px; background: #EDE3EA;">
+        <p style="margin: 0 0 12px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #7A2496;">[Category placeholder] · [Date placeholder]</p>
+        <h3 style="margin: 0 0 12px; font-family: 'Gloock', serif; font-weight: 400; font-size: 30px;">[Upcoming event placeholder]</h3>
+        <p style="margin: 0 0 22px; font-size: 16px; font-weight: 300; line-height: 1.62; color: rgba(26,18,32,.74);">One-line description of the session, who it is for, and what members will leave with. Venue and timing to be announced.</p>
+        <a href="Join.dc.html" style="font-size: 12.5px; letter-spacing: .18em; text-transform: uppercase; border-bottom: 1px solid rgba(26,18,32,.42); padding-bottom: 5px;">Register interest →</a>
+      </article>
+    </div>
+  </section>
+
+  <section style="max-width: 1320px; margin: 0 auto; padding: 84px 48px 92px;">
+    <h2 style="margin: 0 0 40px; padding-bottom: 18px; border-bottom: 1px solid rgba(26,18,32,.18); font-family: 'Gloock', serif; font-weight: 400; font-size: clamp(28px, 3.4vw, 44px); letter-spacing: -.015em;">Past events</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px 24px; align-items: start;">
+      <article>
+        <div style="background: #EDE3EA; display: grid; place-items: center; aspect-ratio: 3/4; overflow: hidden;">
+          <img src="assets/posters/beyond-the-degree.png" alt="Beyond the Degree poster" style="width: 100%; height: 100%; object-fit: contain;" />
+        </div>
+        <p style="margin: 18px 0 6px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #7A2496;">Industry · Oct 2025</p>
+        <h3 style="margin: 0 0 6px; font-family: 'Gloock', serif; font-weight: 400; font-size: 22px;">Beyond the Degree</h3>
+        <p style="margin: 0; font-size: 15px; font-weight: 300; line-height: 1.55; color: rgba(26,18,32,.7);">Turning classroom knowledge into career confidence, with TÜV Rheinland engineers.</p>
+      </article>
+      <article>
+        <div style="background: #EDE3EA; display: grid; place-items: center; aspect-ratio: 3/4; overflow: hidden;">
+          <img src="assets/posters/escape-room.png" alt="The Final Experiment poster" style="width: 100%; height: 100%; object-fit: contain;" />
+        </div>
+        <p style="margin: 18px 0 6px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #7A2496;">Competition · Sep 2025</p>
+        <h3 style="margin: 0 0 6px; font-family: 'Gloock', serif; font-weight: 400; font-size: 22px;">The Final Experiment</h3>
+        <p style="margin: 0; font-size: 15px; font-weight: 300; line-height: 1.55; color: rgba(26,18,32,.7);">An escape room quest — one missing scientist, teams of two to three.</p>
+      </article>
+      <article>
+        <div style="background: #EDE3EA; display: grid; place-items: center; aspect-ratio: 3/4; overflow: hidden;">
+          <img src="assets/posters/unsung-heroes.jpg" alt="Unsung HERoes campaign poster" style="width: 100%; height: 100%; object-fit: contain;" />
+        </div>
+        <p style="margin: 18px 0 6px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #7A2496;">Campaign · 3-day series</p>
+        <h3 style="margin: 0 0 6px; font-family: 'Gloock', serif; font-weight: 400; font-size: 22px;">Unsung HERoes</h3>
+        <p style="margin: 0; font-size: 15px; font-weight: 300; line-height: 1.55; color: rgba(26,18,32,.7);">The women of STEM history the syllabus leaves out, one story a day.</p>
+      </article>
+      <article>
+        <div style="background: #EDE3EA; display: grid; place-items: center; aspect-ratio: 3/4; overflow: hidden;">
+          <img src="assets/posters/tech-taboo.png" alt="Tech Taboo poster" style="width: 100%; height: 100%; object-fit: contain;" />
+        </div>
+        <p style="margin: 18px 0 6px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #7A2496;">Competition · [Date placeholder]</p>
+        <h3 style="margin: 0 0 6px; font-family: 'Gloock', serif; font-weight: 400; font-size: 22px;">Tech Taboo</h3>
+        <p style="margin: 0; font-size: 15px; font-weight: 300; line-height: 1.55; color: rgba(26,18,32,.7);">A guessing game built on engineering vocabulary. [Details placeholder]</p>
+      </article>
+      <article>
+        <div style="background: #EDE3EA; display: grid; place-items: center; aspect-ratio: 3/4; overflow: hidden;">
+          <img src="assets/posters/lost-code.jpg" alt="The Lost Code poster" style="width: 100%; height: 100%; object-fit: contain;" />
+        </div>
+        <p style="margin: 18px 0 6px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #7A2496;">Collaboration · [Date placeholder]</p>
+        <h3 style="margin: 0 0 6px; font-family: 'Gloock', serif; font-weight: 400; font-size: 22px;">The Lost Code</h3>
+        <p style="margin: 0; font-size: 15px; font-weight: 300; line-height: 1.55; color: rgba(26,18,32,.7);">A joint event with IEI. [Details placeholder]</p>
+      </article>
+      <article>
+        <div style="background: #EDE3EA; display: grid; place-items: center; aspect-ratio: 3/4; overflow: hidden;">
+          <img src="assets/posters/btf-x-wie.png" alt="BTF x WIE poster" style="width: 100%; height: 100%; object-fit: contain;" />
+        </div>
+        <p style="margin: 18px 0 6px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #7A2496;">Outreach · Nov 2025</p>
+        <h3 style="margin: 0 0 6px; font-family: 'Gloock', serif; font-weight: 400; font-size: 22px;">BTF × WIE</h3>
+        <p style="margin: 0; font-size: 15px; font-weight: 300; line-height: 1.55; color: rgba(26,18,32,.7);">A collaborative drive taking engineering outside the campus gates. [Details placeholder]</p>
+      </article>
+    </div>
+  </section>
+
+  <section style="border-top: 1px solid rgba(26,18,32,.18); padding: 84px 48px;">
+    <div style="max-width: 1320px; margin: 0 auto;">
+      <h2 style="margin: 0 0 30px; font-family: 'Gloock', serif; font-weight: 400; font-size: clamp(28px, 3.4vw, 44px); letter-spacing: -.015em;">Also held</h2>
+      <a href="Events.dc.html" style="display: grid; grid-template-columns: 150px 1fr 150px; gap: 30px; align-items: center; padding: 20px 0; border-top: 1px solid rgba(26,18,32,.14);" style-hover="background: #EDE3EA;">
+        <span style="font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase; color: #7A2496;">Workshop</span>
+        <span style="font-family: 'Gloock', serif; font-size: 26px;">Promptverse — Gen AI workshop</span>
+        <span style="font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase; text-align: right; color: rgba(26,18,32,.6);">Nov 2025</span>
+      </a>
+      <a href="Events.dc.html" style="display: grid; grid-template-columns: 150px 1fr 150px; gap: 30px; align-items: center; padding: 20px 0; border-top: 1px solid rgba(26,18,32,.14);" style-hover="background: #EDE3EA;">
+        <span style="font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase; color: #7A2496;">Membership</span>
+        <span style="font-family: 'Gloock', serif; font-size: 26px;">Membership drive</span>
+        <span style="font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase; text-align: right; color: rgba(26,18,32,.6);">[Date placeholder]</span>
+      </a>
+      <a href="Events.dc.html" style="display: grid; grid-template-columns: 150px 1fr 150px; gap: 30px; align-items: center; padding: 20px 0; border-top: 1px solid rgba(26,18,32,.14); border-bottom: 1px solid rgba(26,18,32,.14);" style-hover="background: #EDE3EA;">
+        <span style="font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase; color: #7A2496;">[Category]</span>
+        <span style="font-family: 'Gloock', serif; font-size: 26px;">[Event placeholder]</span>
+        <span style="font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase; text-align: right; color: rgba(26,18,32,.6);">[Date placeholder]</span>
+      </a>
+    </div>
+  </section>
+
+  <footer style="border-top: 1px solid rgba(26,18,32,.18); padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: rgba(26,18,32,.62);">
+    <div style="display: flex; align-items: center; gap: 18px;">
+      <img src="assets/bits-logo.png" alt="BITS Pilani" style="height: 36px; width: auto;" />
+      <img src="assets/wie-mark.png" alt="IEEE WIE" style="height: 36px; width: auto;" />
+    </div>
+    <p style="margin: 0;">IEEE WIE BPDC · [email placeholder] · [Instagram placeholder]</p>
+  </footer>
+</div>
+
+</x-dc>
+</body>
+</html>

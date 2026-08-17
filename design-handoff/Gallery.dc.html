@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #F7F2F4; }
+  a { color: #1A1220; text-decoration: none; }
+  a:hover { color: #7A2496; }
+  @keyframes gFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+</style>
+</helmet>
+<div style="background: #F7F2F4; color: #1A1220; font-family: 'Jost', sans-serif; overflow-x: hidden;">
+
+  <header style="display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 24px 48px; background: #120A18;">
+    <a href="Home.dc.html" style="display: flex; align-items: center; gap: 13px;">
+      <img src="assets/wie-mark.png" alt="IEEE WIE BPDC" style="width: 40px; height: 40px; object-fit: contain;" />
+      <span style="font-family: 'Gloock', serif; font-size: 19px; letter-spacing: .01em; color: #F2E9F7;">WIE <span style="color: #D8A7F0;">BPDC</span></span>
+    </a>
+    <nav style="display: flex; gap: 32px; font-size: 13px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase;">
+      <a href="About.dc.html" style="color: #F2E9F7;">About</a>
+      <a href="Events.dc.html" style="color: #F2E9F7;">Events</a>
+      <a href="Gallery.dc.html" style="color: #D8A7F0;">Gallery</a>
+      <a href="Council.dc.html" style="color: #F2E9F7;">Council</a>
+      <a href="Contact.dc.html" style="color: #F2E9F7;">Partner</a>
+      <a href="Join.dc.html" style="color: #F2E9F7;">Join</a>
+    </nav>
+  </header>
+
+  <section style="position: relative; overflow: hidden; background: #120A18; padding: 92px 48px 84px; animation: gFade 1s cubic-bezier(.16,.84,.3,1) both;">
+    <img src="assets/photos/btf-3.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+    <div style="position: absolute; inset: 0; background: #4A1263; mix-blend-mode: color; opacity: .82;"></div>
+    <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(18,10,24,.94) 4%, rgba(18,10,24,.62) 50%, rgba(18,10,24,.74));"></div>
+    <div style="position: relative; max-width: 1320px; margin: 0 auto;">
+      <p style="margin: 0 0 24px; font-size: 12px; font-weight: 500; letter-spacing: .34em; text-transform: uppercase; color: #D8A7F0;">Gallery</p>
+      <h1 style="margin: 0; max-width: 24ch; font-family: 'Gloock', serif; font-weight: 400; font-size: clamp(40px, 6.4vw, 96px); line-height: .98; letter-spacing: -.02em; color: #F2E9F7;">The room, as it looks.</h1>
+    </div>
+  </section>
+
+  <section style="max-width: 1320px; margin: 0 auto; padding: 84px 48px 40px;">
+    <div style="display: flex; align-items: end; justify-content: space-between; gap: 30px; flex-wrap: wrap; padding-bottom: 18px; border-bottom: 1px solid rgba(26,18,32,.18);">
+      <h2 style="margin: 0; font-family: 'Gloock', serif; font-weight: 400; font-size: clamp(28px, 3.4vw, 44px); letter-spacing: -.015em;">Promptverse — Gen AI workshop</h2>
+      <p style="margin: 0; font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase; color: rgba(26,18,32,.6);">Nov 2025</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-top: 28px;">
+      <img src="assets/photos/genai-1.jpg" alt="Members at the Gen AI workshop" style="grid-column: span 3; width: 100%; aspect-ratio: 3/2; object-fit: cover;" />
+      <img src="assets/photos/genai-3.jpg" alt="Workshop group photo" style="grid-column: span 3; width: 100%; aspect-ratio: 3/2; object-fit: cover;" />
+      <img src="assets/photos/genai-2.jpg" alt="A session in progress" style="grid-column: span 2; width: 100%; aspect-ratio: 4/3; object-fit: cover;" />
+      <div style="grid-column: span 2; aspect-ratio: 4/3; background: #EDE3EA; display: grid; place-items: center; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(26,18,32,.5);">Photo placeholder</div>
+      <div style="grid-column: span 2; aspect-ratio: 4/3; background: #EDE3EA; display: grid; place-items: center; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(26,18,32,.5);">Photo placeholder</div>
+    </div>
+  </section>
+
+  <section style="max-width: 1320px; margin: 0 auto; padding: 44px 48px 40px;">
+    <div style="display: flex; align-items: end; justify-content: space-between; gap: 30px; flex-wrap: wrap; padding-bottom: 18px; border-bottom: 1px solid rgba(26,18,32,.18);">
+      <h2 style="margin: 0; font-family: 'Gloock', serif; font-weight: 400; font-size: clamp(28px, 3.4vw, 44px); letter-spacing: -.015em;">The Final Experiment — escape room</h2>
+      <p style="margin: 0; font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase; color: rgba(26,18,32,.6);">Sep 2025</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-top: 28px;">
+      <img src="assets/photos/escape-1.jpg" alt="Teams working through the escape room" style="grid-column: span 4; width: 100%; aspect-ratio: 2/1; object-fit: cover;" />
+      <img src="assets/photos/escape-2.jpg" alt="Participants at a puzzle station" style="grid-column: span 2; width: 100%; height: 100%; object-fit: cover;" />
+      <img src="assets/photos/escape-3.jpg" alt="The escape room set" style="grid-column: span 2; width: 100%; aspect-ratio: 4/3; object-fit: cover;" />
+      <div style="grid-column: span 2; aspect-ratio: 4/3; background: #EDE3EA; display: grid; place-items: center; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(26,18,32,.5);">Photo placeholder</div>
+      <div style="grid-column: span 2; aspect-ratio: 4/3; background: #EDE3EA; display: grid; place-items: center; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(26,18,32,.5);">Photo placeholder</div>
+    </div>
+  </section>
+
+  <section style="max-width: 1320px; margin: 0 auto; padding: 44px 48px 92px;">
+    <div style="display: flex; align-items: end; justify-content: space-between; gap: 30px; flex-wrap: wrap; padding-bottom: 18px; border-bottom: 1px solid rgba(26,18,32,.18);">
+      <h2 style="margin: 0; font-family: 'Gloock', serif; font-weight: 400; font-size: clamp(28px, 3.4vw, 44px); letter-spacing: -.015em;">BTF × WIE — outreach drive</h2>
+      <p style="margin: 0; font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase; color: rgba(26,18,32,.6);">Nov 2025</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-top: 28px;">
+      <img src="assets/photos/btf-1.jpg" alt="The WIE stall at the outreach drive" style="grid-column: span 3; width: 100%; aspect-ratio: 3/2; object-fit: cover;" />
+      <img src="assets/photos/btf-2.jpg" alt="Volunteers with visitors" style="grid-column: span 3; width: 100%; aspect-ratio: 3/2; object-fit: cover;" />
+      <img src="assets/photos/btf-3.jpg" alt="Setting up the stall" style="grid-column: span 2; width: 100%; aspect-ratio: 4/3; object-fit: cover;" />
+      <div style="grid-column: span 4; aspect-ratio: 8/3; background: #EDE3EA; display: grid; place-items: center; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(26,18,32,.5);">Photo placeholder — drop more album photos here</div>
+    </div>
+  </section>
+
+  <section style="position: relative; overflow: hidden; padding: 96px 48px; text-align: center; background: #120A18;">
+    <img src="assets/photos/genai-3.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+    <div style="position: absolute; inset: 0; background: #4A1263; mix-blend-mode: color; opacity: .86;"></div>
+    <div style="position: absolute; inset: 0; background: rgba(18,10,24,.68);"></div>
+    <div style="position: relative; max-width: 720px; margin: 0 auto;">
+      <h2 style="margin: 0; font-family: 'Gloock', serif; font-weight: 400; font-size: clamp(28px, 4vw, 52px); line-height: 1.08; letter-spacing: -.015em; color: #F2E9F7;">Be in the next set of photos.</h2>
+      <a href="Join.dc.html" style="display: inline-block; margin-top: 30px; padding: 18px 38px; background: #F2E9F7; color: #120A18; font-size: 13px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase;">Become a member →</a>
+    </div>
+  </section>
+
+  <footer style="border-top: 1px solid rgba(26,18,32,.18); padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: rgba(26,18,32,.62);">
+    <div style="display: flex; align-items: center; gap: 18px;">
+      <img src="assets/bits-logo.png" alt="BITS Pilani" style="height: 36px; width: auto;" />
+      <img src="assets/wie-mark.png" alt="IEEE WIE" style="height: 36px; width: auto;" />
+    </div>
+    <p style="margin: 0;">IEEE WIE BPDC · [email placeholder] · [Instagram placeholder]</p>
+  </footer>
+</div>
+
+</x-dc>
+</body>
+</html>

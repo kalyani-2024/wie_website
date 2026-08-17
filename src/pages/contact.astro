@@ -1,0 +1,116 @@
+---
+import Base from '../layouts/Base.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import PageHero from '../components/PageHero.astro';
+import { placeholders } from '../site';
+
+import genai2 from '../assets/photos/genai-2.jpg';
+
+const stats = [
+  { value: placeholders.members, label: 'Members reached' },
+  { value: placeholders.eventsRun, label: 'Events per year' },
+  { value: placeholders.partners, label: 'Past partners' },
+  { value: 'XX', label: 'Branches represented' },
+];
+---
+
+<Base
+  title="Partner & contact — IEEE WIE BPDC"
+  description="Sponsor a session, collaborate with the chapter, or reach the council of IEEE Women in Engineering at BITS Pilani, Dubai Campus."
+>
+  <SiteHeader current="Partner" />
+
+  <main id="main">
+    <PageHero photo={genai2} eyebrow="Partner &amp; contact" wide>
+      Reach the engineers this campus is about to graduate.
+    </PageHero>
+
+    <section class="section wrap">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">Sponsorship</p>
+          <h2 class="h2 h2--md" style="margin-bottom: 22px;">
+            Put your engineers in the room with ours.
+          </h2>
+          <p class="body">
+            We host workshops, panels and competitions with industry partners every
+            semester. Sponsorship funds the sessions and gives your team direct access to
+            students across every engineering branch on campus.
+          </p>
+          <p class="body">[Sponsorship tiers and deliverables placeholder.]</p>
+        </div>
+        <div>
+          <div class="stat-quad">
+            {
+              stats.map((stat) => (
+                <div>
+                  <p class="value">{stat.value}</p>
+                  <p class="label">{stat.label}</p>
+                </div>
+              ))
+            }
+          </div>
+          <a class="btn-dark" href="#" style="margin-top: 32px;">
+            Request the sponsorship deck →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--ruled">
+      <div class="wrap">
+        <h2 class="h2 h2--xs" style="margin-bottom: 30px;">Past collaborators</h2>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;" class="logos">
+          {[0, 1, 2, 3].map(() => <div class="tile" style="aspect-ratio: 5/2;">Partner logo</div>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--ruled" style="padding-block: 84px 92px;">
+      <div class="wrap two-col">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 class="h2 h2--md" style="margin-bottom: 22px;">Talk to the council.</h2>
+          <p class="body">
+            Sponsorship, collaborations with other chapters, press, or a question about
+            joining — the chair and secretary read everything that comes in.
+          </p>
+        </div>
+        <dl style="margin: 0;">
+          <div class="row-detail">
+            <dt>Email</dt>
+            <dd>{placeholders.email}</dd>
+          </div>
+          <div class="row-detail">
+            <dt>Instagram</dt>
+            <dd>[handle placeholder]</dd>
+          </div>
+          <div class="row-detail">
+            <dt>LinkedIn</dt>
+            <dd>[handle placeholder]</dd>
+          </div>
+          <div class="row-detail">
+            <dt>On campus</dt>
+            <dd>
+              BITS Pilani, Dubai Campus<br />
+              <span style="font-size: 16px; color: rgba(26,18,32,.66);">
+                [room / office placeholder]
+              </span>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</Base>
+
+<style>
+  @media (max-width: 860px) {
+    .logos {
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
+</style>
