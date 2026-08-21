@@ -51,6 +51,7 @@ const leads = [
                   alt={person.name ? `${person.name} portrait` : 'Portrait placeholder'}
                   width={200}
                   densities={[1, 2]}
+                  class:list={{ 'portrait-photo': Boolean(person.photo) }}
                 />
               </div>
               <p class="person-name">{person.name ?? '[Name placeholder]'}</p>
