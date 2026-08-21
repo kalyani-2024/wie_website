@@ -10,7 +10,23 @@ import { placeholders } from '../site';
     <Image src={bitsLogo} alt="BITS Pilani" height={36} densities={[1, 2]} />
     <Image src={wieLogo} alt="IEEE WIE" height={52} densities={[1, 2]} />
   </div>
-  <p style="margin: 0;">
-    IEEE WIE BPDC · {placeholders.email} · {placeholders.instagram}
-  </p>
+  <nav class="social-links" aria-label="Social links">
+    <a href={`mailto:${placeholders.email}`} aria-label="Email IEEE WIE BPDC">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 5.5h18v13H3zM3 6l9 7 9-7" />
+      </svg>
+    </a>
+    <a href={placeholders.instagram} target="_blank" rel="noreferrer" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3.5" y="3.5" width="17" height="17" rx="4" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="1" class="social-dot" />
+      </svg>
+    </a>
+    <a href={placeholders.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M5 8.5V19M5 5v.01M10 19v-6a3 3 0 0 1 6 0v6M10 10v9M19 19v-6a3 3 0 0 0-6-0" />
+      </svg>
+    </a>
+  </nav>
 </footer>

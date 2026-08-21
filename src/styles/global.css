@@ -1142,6 +1142,37 @@ img {
   width: auto;
 }
 
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.social-links a {
+  display: grid;
+  place-items: center;
+  color: var(--plum);
+}
+
+.social-links a:hover {
+  color: var(--ink);
+}
+
+.social-links svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.social-links .social-dot {
+  fill: currentColor;
+  stroke: none;
+}
+
 /* --------------------------------------------------------------------------
    Responsive — not in the handoff (see README). Desktop values above are
    untouched; these are stacking rules for tablet and phone.

@@ -18,8 +18,9 @@ export type NavLabel = (typeof nav)[number]['label'];
 export const FORM_URL = '#';
 
 export const placeholders = {
-  email: '[email placeholder]',
-  instagram: '[Instagram placeholder]',
+  email: 'wie@dubai.bits-pilani.ac.in',
+  instagram: 'https://www.instagram.com/wiebpdc/',
+  linkedin: 'https://www.linkedin.com/in/ieee-women-in-engineering-bpdc-a71116224/',
   members: '100+',
   eventsRun: '50+',
   activities: '5+',
