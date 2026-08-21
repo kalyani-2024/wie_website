@@ -73,9 +73,15 @@ const leads = [
           leads.map((person) => (
             <article>
               <div class="portrait">
-                <Image src={wieMark} alt="Portrait placeholder" width={200} densities={[1, 2]} />
+                <Image
+                  src={person.photo ?? wieMark}
+                  alt={person.name ? `${person.name} portrait` : 'Portrait placeholder'}
+                  width={200}
+                  densities={[1, 2]}
+                  class:list={{ 'portrait-photo': Boolean(person.photo) }}
+                />
               </div>
-              <p class="person-name">[Name placeholder]</p>
+              <p class="person-name">{person.name ?? '[Name placeholder]'}</p>
               <p class="person-role" style="margin-bottom: 0;">
                 {person.role}
               </p>
