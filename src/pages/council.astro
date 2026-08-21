@@ -7,11 +7,10 @@ import PageHero from '../components/PageHero.astro';
 
 import genai3 from '../assets/photos/genai-3.jpg';
 import wieMark from '../assets/wie-mark.png';
+import vaniaRoy from '../assets/vania-roy.png';
 
-/* No portraits exist yet — every plate centres the WIE mark as the
-   placeholder. Swap `photo` in once the council supplies real images. */
 const coreTeam = [
-  { role: 'Chair' },
+  { role: 'Chair', name: 'Vania Roy', photo: vaniaRoy },
   { role: 'Vice chair' },
   { role: 'Secretary' },
   { role: 'Treasurer' },
@@ -47,11 +46,15 @@ const leads = [
           coreTeam.map((person) => (
             <article>
               <div class="portrait">
-                <Image src={wieMark} alt="Portrait placeholder" width={200} densities={[1, 2]} />
+                <Image
+                  src={person.photo ?? wieMark}
+                  alt={person.name ? `${person.name} portrait` : 'Portrait placeholder'}
+                  width={200}
+                  densities={[1, 2]}
+                />
               </div>
-              <p class="person-name">[Name placeholder]</p>
+              <p class="person-name">{person.name ?? '[Name placeholder]'}</p>
               <p class="person-role">{person.role}</p>
-              <p class="person-meta">[Degree and year placeholder]</p>
             </article>
           ))
         }
