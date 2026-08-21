@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
@@ -8,6 +9,7 @@ import { FORM_URL } from '../site';
 
 import btf1 from '../assets/photos/btf-1.jpg';
 import escape1 from '../assets/photos/escape-1.jpg';
+import membershipInfo from '../assets/membership-info.png';
 
 const benefits = [
   {
@@ -21,24 +23,6 @@ const benefits = [
   {
     title: 'A way in',
     copy: 'Run an event, design a campaign, or stand for the council next year. Members get first call.',
-  },
-];
-
-const steps = [
-  {
-    num: '01',
-    title: 'Fill the form',
-    copy: 'Name, branch, year and a contact number. It takes under two minutes.',
-  },
-  {
-    num: '02',
-    title: 'Join the group',
-    copy: 'We add you to the announcements group, where every session goes out first. [Channel placeholder]',
-  },
-  {
-    num: '03',
-    title: 'Turn up',
-    copy: 'Come to the next session. Nothing else is required, and there is no membership fee. [Confirm fee policy]',
   },
 ];
 
@@ -101,30 +85,13 @@ const faqs = [
       </div>
     </section>
 
-    <section class="section section--ruled">
-      <div class="wrap two-col">
-        <div>
-          <p class="eyebrow">How it works</p>
-          <h2 class="h2 h2--md">Three steps, and you are in.</h2>
-        </div>
-        <div>
-          {
-            steps.map((step) => (
-              <div class="row-step">
-                <p class="num">{step.num}</p>
-                <div>
-                  <p
-                    style="margin: 0 0 6px; font-family: var(--display); font-size: 22px;"
-                  >
-                    {step.title}
-                  </p>
-                  <p class="body-sm">{step.copy}</p>
-                </div>
-              </div>
-            ))
-          }
-        </div>
-      </div>
+    <section class="membership-info">
+      <Image
+        src={membershipInfo}
+        alt="WIE membership information and pricing"
+        widths={[900, 1400, 1920]}
+        sizes="100vw"
+      />
     </section>
 
     <section class="section section--ruled">

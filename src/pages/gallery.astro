@@ -9,14 +9,58 @@ import CtaBand from '../components/CtaBand.astro';
 import genai1 from '../assets/photos/genai-1.jpg';
 import genai2 from '../assets/photos/genai-2.jpg';
 import genai3 from '../assets/photos/genai-3.jpg';
-import escape1 from '../assets/photos/escape-1.jpg';
-import escape2 from '../assets/photos/escape-2.jpg';
-import escape3 from '../assets/photos/escape-3.jpg';
-import btf1 from '../assets/photos/btf-1.jpg';
-import btf2 from '../assets/photos/btf-2.jpg';
+import genaiGallery4 from '../assets/photos/genai-gallery-4.png';
+import genaiGallery5 from '../assets/photos/genai-gallery-5.png';
+import genaiGallery6 from '../assets/photos/genai-gallery-6.png';
+import genaiGallery7 from '../assets/photos/genai-gallery-7.png';
+import escapeGallery1 from '../assets/photos/escape-gallery-1.png';
+import escapeGallery2 from '../assets/photos/escape-gallery-2.png';
+import escapeGallery3 from '../assets/photos/escape-gallery-3.png';
+import escapeGallery4 from '../assets/photos/escape-gallery-4.png';
+import escapeGallery5 from '../assets/photos/escape-gallery-5.png';
+import escapeGallery6 from '../assets/photos/escape-gallery-6.png';
+import escapeGallery7 from '../assets/photos/escape-gallery-7.png';
+import escapeGallery8 from '../assets/photos/escape-gallery-8.png';
 import btf3 from '../assets/photos/btf-3.jpg';
+import btfGallery1 from '../assets/photos/btf-gallery-1.png';
+import btfGallery2 from '../assets/photos/btf-gallery-2.png';
+import btfGallery3 from '../assets/photos/btf-gallery-3.png';
+import btfGallery4 from '../assets/photos/btf-gallery-4.png';
+import btfGallery5 from '../assets/photos/btf-gallery-5.png';
+import btfGallery6 from '../assets/photos/btf-gallery-6.png';
+import btfGallery7 from '../assets/photos/btf-gallery-7.png';
+import btfGallery8 from '../assets/photos/btf-gallery-8.png';
 
 const sizes = '(max-width: 860px) 92vw, 45vw';
+const genaiGallery = [
+  { src: genai1, alt: 'Members at the Gen AI workshop' },
+  { src: genai3, alt: 'Workshop group photo' },
+  { src: genai2, alt: 'A session in progress' },
+  { src: genaiGallery4, alt: 'Promptverse workshop photo 4' },
+  { src: genaiGallery5, alt: 'Promptverse workshop photo 5' },
+  { src: genaiGallery6, alt: 'Promptverse workshop photo 6' },
+  { src: genaiGallery7, alt: 'Promptverse workshop photo 7' },
+];
+const btfGallery = [
+  { src: btfGallery1, alt: 'BTF event photo 1' },
+  { src: btfGallery2, alt: 'BTF event photo 2' },
+  { src: btfGallery3, alt: 'BTF event photo 3' },
+  { src: btfGallery4, alt: 'BTF event photo 4' },
+  { src: btfGallery5, alt: 'BTF event photo 5' },
+  { src: btfGallery6, alt: 'BTF event photo 6' },
+  { src: btfGallery7, alt: 'BTF event photo 7' },
+  { src: btfGallery8, alt: 'BTF event photo 8' },
+];
+const escapeGallery = [
+  { src: escapeGallery1, alt: 'Final Experiment event photo 1' },
+  { src: escapeGallery2, alt: 'Final Experiment event photo 2' },
+  { src: escapeGallery3, alt: 'Final Experiment event photo 3' },
+  { src: escapeGallery4, alt: 'Final Experiment event photo 4' },
+  { src: escapeGallery5, alt: 'Final Experiment event photo 5' },
+  { src: escapeGallery6, alt: 'Final Experiment event photo 6' },
+  { src: escapeGallery7, alt: 'Final Experiment event photo 7' },
+  { src: escapeGallery8, alt: 'Final Experiment event photo 8' },
+];
 ---
 
 <Base
@@ -34,29 +78,17 @@ const sizes = '(max-width: 860px) 92vw, 45vw';
         <p class="gallery-date">Nov 2025</p>
       </div>
       <div class="gallery-grid">
-        <Image
-          src={genai1}
-          alt="Members at the Gen AI workshop"
-          widths={[640, 1000, 1400]}
-          sizes={sizes}
-          class="span-3 ar-3-2"
-        />
-        <Image
-          src={genai3}
-          alt="Workshop group photo"
-          widths={[640, 1000, 1400]}
-          sizes={sizes}
-          class="span-3 ar-3-2"
-        />
-        <Image
-          src={genai2}
-          alt="A session in progress"
-          widths={[440, 700, 1000]}
-          sizes={sizes}
-          class="span-2 ar-4-3"
-        />
-        <div class="tile span-2 ar-4-3">Photo placeholder</div>
-        <div class="tile span-2 ar-4-3">Photo placeholder</div>
+        {
+          genaiGallery.map((photo) => (
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              widths={[440, 700, 1000]}
+              sizes={sizes}
+              class="span-2 ar-4-3"
+            />
+          ))
+        }
       </div>
     </section>
 
@@ -66,68 +98,43 @@ const sizes = '(max-width: 860px) 92vw, 45vw';
         <p class="gallery-date">Sep 2025</p>
       </div>
       <div class="gallery-grid">
-        <Image
-          src={escape1}
-          alt="Teams working through the escape room"
-          widths={[800, 1200, 1600]}
-          sizes={sizes}
-          class="span-4 ar-2-1"
-        />
-        <div class="span-2 frame">
-          <Image
-            src={escape2}
-            alt="Participants at a puzzle station"
-            widths={[440, 700, 1000]}
-            sizes={sizes}
-            class="frame-img"
-          />
-        </div>
-        <Image
-          src={escape3}
-          alt="The escape room set"
-          widths={[440, 700, 1000]}
-          sizes={sizes}
-          class="span-2 ar-4-3"
-        />
-        <div class="tile span-2 ar-4-3">Photo placeholder</div>
-        <div class="tile span-2 ar-4-3">Photo placeholder</div>
+        {
+          escapeGallery.map((photo) => (
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              widths={[440, 700, 1000]}
+              sizes={sizes}
+              class="span-2 ar-4-3"
+            />
+          ))
+        }
       </div>
     </section>
 
     <section class="section wrap" style="padding-block: 44px 92px;">
       <div class="gallery-head">
-        <h2 class="h2 h2--sm">BTF × WIE — outreach drive</h2>
-        <p class="gallery-date">Nov 2025</p>
+        <h2 class="h2 h2--sm">BTF</h2>
+        <p class="gallery-date">NOV 2025</p>
       </div>
       <div class="gallery-grid">
-        <Image
-          src={btf1}
-          alt="The WIE stall at the outreach drive"
-          widths={[640, 1000, 1400]}
-          sizes={sizes}
-          class="span-3 ar-3-2"
-        />
-        <Image
-          src={btf2}
-          alt="Volunteers with visitors"
-          widths={[640, 1000, 1400]}
-          sizes={sizes}
-          class="span-3 ar-3-2"
-        />
-        <Image
-          src={btf3}
-          alt="Setting up the stall"
-          widths={[440, 700, 1000]}
-          sizes={sizes}
-          class="span-2 ar-4-3"
-        />
-        <div class="tile span-4 ar-8-3">Photo placeholder — drop more album photos here</div>
+        {
+          btfGallery.map((photo) => (
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              widths={[440, 700, 1000]}
+              sizes={sizes}
+              class="span-2 ar-4-3"
+            />
+          ))
+        }
       </div>
     </section>
 
     <CtaBand photo={genai3} size="gallery" narrow>
       <h2 class="h2-dark h2-dark--xs">Be in the next set of photos.</h2>
-      <a class="btn-light" href="/join/" style="margin-top: 30px;">Become a member →</a>
+      <a class="btn-light" href="/join/" style="margin-top: 30px;">JOIN US →</a>
     </CtaBand>
   </main>
 

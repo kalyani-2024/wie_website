@@ -89,6 +89,17 @@ img {
   margin: 0 auto;
 }
 
+.membership-info {
+  width: 100%;
+  background: #855aa0;
+}
+
+.membership-info img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* Skip link — not in the handoff, added for keyboard users. */
 .skip-link {
   position: absolute;
@@ -204,21 +215,37 @@ img {
 }
 
 .brand img {
-  width: 40px;
-  height: 40px;
+  width: 92px;
+  height: 56px;
   object-fit: contain;
 }
 
-.brand span {
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.brand-copy strong {
   font-family: var(--display);
   font-size: 19px;
+  font-weight: 400;
   letter-spacing: 0.01em;
   color: var(--light-ink);
 }
 
-.brand span b {
+.brand-copy strong b {
   font-weight: 400;
   color: var(--light-accent);
+}
+
+.brand-copy small {
+  color: var(--light-ink);
+  font-family: var(--text);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
 .nav {
@@ -444,6 +471,10 @@ img {
   color: var(--plum);
 }
 
+.eyebrow--mission {
+  font-size: 14px;
+}
+
 .h1-hero {
   margin: 0;
   font-family: var(--display);
@@ -476,6 +507,10 @@ img {
   font-size: clamp(30px, 3.9vw, 54px);
   line-height: 1.12;
   letter-spacing: -0.015em;
+}
+
+.h2--mission {
+  font-size: clamp(28px, 3.4vw, 46px);
 }
 
 .h2--lg {

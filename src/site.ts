@@ -9,7 +9,6 @@ export const nav = [
   { label: 'Events', href: '/events/' },
   { label: 'Gallery', href: '/gallery/' },
   { label: 'Council', href: '/council/' },
-  { label: 'Partner', href: '/contact/' },
   { label: 'Join', href: '/join/' },
 ] as const;
 
@@ -21,8 +20,8 @@ export const FORM_URL = '#';
 export const placeholders = {
   email: '[email placeholder]',
   instagram: '[Instagram placeholder]',
-  members: 'XXX',
-  eventsRun: 'XX',
-  partners: 'XX',
-  founded: '20XX',
+  members: '100+',
+  eventsRun: '50+',
+  activities: '5+',
+  founded: '2021',
 };

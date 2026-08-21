@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import wieMark from '../assets/wie-mark.png';
+import wieLogo from '../assets/wie-logo.png';
 import { nav, type NavLabel } from '../site';
 
 interface Props {
@@ -15,8 +15,11 @@ const { current, variant = 'solid' } = Astro.props;
 
 <header class:list={['site-head', `site-head--${variant}`]}>
   <a class="brand" href="/">
-    <Image src={wieMark} alt="IEEE WIE BPDC" width={40} densities={[1, 2]} />
-    <span>WIE <b>BPDC</b></span>
+    <Image src={wieLogo} alt="IEEE WIE BPDC" width={92} densities={[1, 2]} />
+    <span class="brand-copy">
+      <strong><b>W</b><b>I</b><b>E</b> BPDC</strong>
+      <small>Women In Engineering</small>
+    </span>
   </a>
   <nav class="nav" aria-label="Primary">
     {
