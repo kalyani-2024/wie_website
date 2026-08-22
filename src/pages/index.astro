@@ -15,6 +15,7 @@ import escape3 from '../assets/photos/escape-3.jpg';
 import btf1 from '../assets/photos/btf-1.jpg';
 import btf2 from '../assets/photos/btf-2.jpg';
 import btf3 from '../assets/photos/btf-3.jpg';
+import labSession from '../assets/photos/lab-session.png';
 
 import beyondTheDegree from '../assets/posters/beyond-the-degree.png';
 import escapeRoom from '../assets/posters/escape-room.png';
@@ -26,25 +27,21 @@ const slides = [
   {
     photo: genai3,
     alt: 'Members at the Promptverse Gen AI workshop',
-    caption: 'Promptverse — Gen AI workshop, Nov 2025',
     delay: '0s',
   },
   {
     photo: escape1,
     alt: 'Teams at The Final Experiment escape room',
-    caption: 'The Final Experiment — escape room, Sep 2025',
     delay: '-19.5s',
   },
   {
     photo: btf1,
     alt: 'Volunteers at the BTF x WIE outreach drive',
-    caption: 'BTF × WIE — outreach drive, Nov 2025',
     delay: '-13s',
   },
   {
     photo: genai1,
     alt: 'A workshop session in progress',
-    caption: 'Workshop floor — [event placeholder]',
     delay: '-6.5s',
   },
 ];
@@ -107,7 +104,7 @@ const events = [
     <SiteHeader variant="hero" />
 
     <div class="hero-copy" id="main">
-      <p class="eyebrow-dark" style="margin-bottom: 28px;">
+      <p class="eyebrow-dark hero-tagline" style="margin-bottom: 28px;">
         IEEE Women in Engineering · BITS Pilani, Dubai Campus
       </p>
       <h1 class="h1-hero">
@@ -124,13 +121,6 @@ const events = [
     </div>
 
     <div class="hero-foot">
-      <p class="caption-line">
-        {
-          slides.map((slide) => (
-            <span style={`--delay: ${slide.delay};`}>{slide.caption}</span>
-          ))
-        }
-      </p>
       <div class="stats">
         {
           stats.map((stat) => (
@@ -144,21 +134,21 @@ const events = [
     </div>
   </section>
 
-  <section class="two-col two-col--center wrap" style="padding: 108px var(--gutter);">
+  <section class="two-col wrap" style="padding: 108px var(--gutter); align-items: start;">
     <div>
       <p class="eyebrow eyebrow--mission">Why we exist</p>
-      <h2 class="h2 h2--mission">
-        WIE exists to close the retention gap in engineering by giving women the mentorship,
-        practical skills, and professional community that formal education leaves out —
-        building a legacy that strengthens with every graduating class.
-      </h2>
+      <p class="lead mission-copy">
+        Our chapter creates opportunities to learn beyond the classroom, connect with mentors
+        and peers, and turn ideas into meaningful work. We aim to build a strong community
+        that grows with every new generation of women in engineering.
+      </p>
       <a class="link-ul" href="/about/" style="margin-top: 30px;">Read our mission →</a>
     </div>
     <div class="photo-grid">
       <Image src={escape3} alt="Escape room event" widths={[400, 640, 900]} sizes="(max-width: 860px) 45vw, 25vw" />
       <Image src={btf2} alt="Outreach drive" widths={[400, 640, 900]} sizes="(max-width: 860px) 45vw, 25vw" />
       <Image src={genai2} alt="Workshop session" widths={[400, 640, 900]} sizes="(max-width: 860px) 45vw, 25vw" />
-      <Image src={btf3} alt="Outreach volunteers" widths={[400, 640, 900]} sizes="(max-width: 860px) 45vw, 25vw" />
+      <Image src={labSession} alt="Members working together in a workshop" widths={[400, 640, 900]} sizes="(max-width: 860px) 45vw, 25vw" />
     </div>
   </section>
 
@@ -187,3 +177,20 @@ const events = [
 
   <SiteFooter />
 </Base>
+
+<style>
+  .hero-tagline {
+    font-size: 20px;
+    letter-spacing: 0.18em;
+    line-height: 1.45;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 860px) {
+    .hero-tagline {
+      font-size: 15px;
+      letter-spacing: 0.14em;
+    }
+  }
+</style>

@@ -55,10 +55,10 @@ const pillars = [
       Together, we build what’s next.
     </PageHero>
 
-    <section class="section wrap two-col" style="padding-block: 96px;">
+    <section class="section wrap two-col about-hero-copy" style="padding-block: 96px;">
       <div>
-        <p class="eyebrow">Mission</p>
-        <h2 class="h2">
+        <p class="eyebrow about-eyebrow">Mission</p>
+        <h2 class="h2 about-heading">
           Create a space where women in engineering can connect, grow, and turn ideas into action.
         </h2>
       </div>
@@ -165,3 +165,28 @@ const pillars = [
 
   <SiteFooter />
 </Base>
+
+<style>
+  .about-eyebrow {
+    font-size: 18px;
+    letter-spacing: 0.24em;
+    font-weight: 600;
+  }
+
+  .about-heading {
+    font-size: clamp(44px, 5vw, 78px);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+  }
+
+  @media (max-width: 860px) {
+    .about-eyebrow {
+      font-size: 15px;
+      letter-spacing: 0.2em;
+    }
+
+    .about-heading {
+      font-size: clamp(34px, 8vw, 52px);
+    }
+  }
+</style>

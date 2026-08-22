@@ -11,6 +11,19 @@ import vaniaRoy from '../assets/vania-roy.png';
 import shreiyaRamaswamy from '../assets/shreiya-ramaswamy.png';
 import jeanneFranklin from '../assets/jeanne-franklin.png';
 import mahimaShivraj from '../assets/mahima-shivraj.png';
+import briannaJoan from '../assets/brianna-joan.png';
+import maheenMallik from '../assets/maheen-mallik.png';
+import dhanviJigneshShah from '../assets/dhanvi-jignesh-shah.png';
+import jessicaMarianaJohn from '../assets/jessica-mariana-john.png';
+import nuhaShanawaz from '../assets/nuha-shanawaz.png';
+import aarnaMunjal from '../assets/aarna-munjal.png';
+import shriyaKhivasara from '../assets/shriya-khivasara.png';
+import roshniRamkumar from '../assets/roshni-ramkumar.png';
+import arushriGangji from '../assets/arushri-gangji.png';
+import devyaniKachhwah from '../assets/devyani-kachhwah.png';
+import juannElsaKuruvilla from '../assets/juann-elsa-kuruvilla.png';
+import sreelakshmiRajasekharanPotti from '../assets/sreelakshmi-rajasekharan-potti.png';
+import suhaniSaikrishna from '../assets/suhani-saikrishna.png';
 import avishiAggarwal from '../assets/avishi-aggarwal.png';
 import kalyaniBaiju from '../assets/kalyani-baiju.png';
 
@@ -18,15 +31,30 @@ const coreTeam = [
   { role: 'Chair', name: 'Vania Roy', photo: vaniaRoy },
   { role: 'Vice chair', name: 'Shreiya Ramaswamy', photo: shreiyaRamaswamy },
   { role: 'Secretary', name: 'Jeanne Franklin', photo: jeanneFranklin },
-  { role: 'Treasurer', name: 'Suhani Saikrishna' },
+  { role: 'Treasurer', name: 'Suhani Saikrishna', photo: suhaniSaikrishna },
 ];
 
 const leads = [
   { role: 'MARKETING LEAD', name: 'Mahima Shivraj', photo: mahimaShivraj },
-  { role: 'Design lead' },
+  { role: 'Design lead', name: 'Brianna Joan', photo: briannaJoan },
   { role: 'Outreach lead', name: 'Ankitha Surisetty' },
   { role: 'Technical lead', name: 'Kalyani Baiju', photo: kalyaniBaiju },
   { role: 'EX-OFFICIO', name: 'Avishi Aggarwal', photo: avishiAggarwal },
+];
+
+const committee = [
+  { name: 'Maheen Mallik', designation: 'Technical Coordinator', photo: maheenMallik },
+  { name: 'Dhanvi Jignesh Shah', designation: 'Technical Coordinator', photo: dhanviJigneshShah },
+  { name: 'Jessica Mariana John', designation: 'Logistics Coordinator', photo: jessicaMarianaJohn },
+  { name: 'Nuha Shanawaz', designation: 'Outreach Coordinator', photo: nuhaShanawaz },
+  { name: 'Aarna Munjal', designation: 'Outreach Coordinator', photo: aarnaMunjal },
+  { name: 'Shriya Khivasara', designation: 'Outreach Coordinator', photo: shriyaKhivasara },
+  { name: 'Roshni Ramkumar', designation: 'Marketing Coordinator', photo: roshniRamkumar },
+  { name: 'Arushri Gangji', designation: 'Marketing Coordinator', photo: arushriGangji },
+  { name: 'Devyani Kachhwah', designation: 'Marketing Coordinator', photo: devyaniKachhwah },
+  { name: 'Juann Elsa Kuruvilla', designation: 'Design Coordinator', photo: juannElsaKuruvilla },
+  { name: 'Nisrita', designation: 'Design Coordinator' },
+  { name: 'Sreelakshmi Rajasekharan Potti', designation: 'Design Coordinator', photo: sreelakshmiRajasekharanPotti },
 ];
 ---
 
@@ -88,6 +116,29 @@ const leads = [
               <p class="person-role" style="margin-bottom: 0;">
                 {person.role}
               </p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section wrap" style="padding-block: 64px 92px;">
+      <h2 class="h2 h2--xs h2-rule" style="margin-bottom: 30px;">Committee</h2>
+      <div class="grid-4">
+        {
+          committee.map((person) => (
+            <article>
+              <div class="portrait">
+                <Image
+                  src={person.photo ?? wieMark}
+                  alt={person.name ? `${person.name} portrait` : 'Committee member placeholder'}
+                  width={200}
+                  densities={[1, 2]}
+                  class:list={{ 'portrait-photo': Boolean(person.photo) }}
+                />
+              </div>
+              <p class="person-name">{person.name}</p>
+              <p class="person-role" style="margin-bottom: 0;">{person.designation}</p>
             </article>
           ))
         }

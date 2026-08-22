@@ -62,11 +62,6 @@ const pastEvents = [
   },
 ];
 
-const alsoHeld = [
-  { category: 'Workshop', name: 'Promptverse — Gen AI workshop', date: 'Nov 2025' },
-  { category: 'Membership', name: 'Membership drive', date: '[Date placeholder]' },
-  { category: '[Category]', name: '[Event placeholder]', date: '[Date placeholder]' },
-];
 ---
 
 <Base
@@ -75,8 +70,8 @@ const alsoHeld = [
 >
   <SiteHeader current="Events" />
 
-  <main id="main">
-    <PageHero photo={escape2} eyebrow="Events" wide>
+  <main id="main" class="events-page">
+    <PageHero photo={escape2} eyebrow="Our Events" wide>
       Everything we have run, on the record.
     </PageHero>
 
@@ -114,26 +109,51 @@ const alsoHeld = [
       </div>
     </section>
 
-    <section class="section section--ruled">
-      <div class="wrap">
-        <h2 class="h2 h2--sm" style="margin-bottom: 30px;">Also held</h2>
-        {
-          alsoHeld.map((event) => (
-            <div class="row-index">
-              <span class="cat">{event.category}</span>
-              <span class="name">{event.name}</span>
-              <span class="date">{event.date}</span>
-            </div>
-          ))
-        }
-      </div>
-    </section>
   </main>
 
   <SiteFooter />
 </Base>
 
 <style>
+  main.events-page :global(.eyebrow-dark) {
+    font-size: 24px;
+    letter-spacing: 0.18em;
+    line-height: 1.2;
+  }
+
+  main.events-page :global(.h1-page) {
+    font-size: clamp(52px, 7vw, 118px);
+  }
+
+  main.events-page :global(.h2) {
+    font-size: clamp(38px, 4.8vw, 68px);
+  }
+
+  main.events-page :global(.card-kicker) {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+  }
+
+  main.events-page :global(.card-title) {
+    font-size: clamp(28px, 3vw, 38px);
+    line-height: 1.08;
+  }
+
+  main.events-page :global(.card-desc) {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  main.events-page :global(.panel--event h3) {
+    font-size: clamp(30px, 3vw, 42px) !important;
+    line-height: 1.08;
+  }
+
+  main.events-page :global(.panel--event .body-sm) {
+    font-size: 17px !important;
+    line-height: 1.6;
+  }
+
   @media (max-width: 860px) {
     .two-up {
       grid-template-columns: 1fr !important;
