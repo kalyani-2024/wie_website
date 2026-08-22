@@ -809,6 +809,14 @@ img {
   object-fit: contain;
 }
 
+/* Ensure poster artwork fills the same visible frame. Use cover to
+   make visually consistent across mixed source ratios — crops minor
+   edges but keeps cards aligned. */
+.plate img.poster-img {
+  object-fit: cover;
+  object-position: center;
+}
+
 .card-kicker {
   margin: 18px 0 6px;
   font-size: 11px;

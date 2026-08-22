@@ -17,7 +17,7 @@ const { poster, posterAlt, kicker, title, description } = Astro.props;
   {/* object-fit: contain — the posters are the chapter's own artwork at
       mixed ratios and must never be cropped. */}
   <div class="plate">
-    <Image src={poster} alt={posterAlt} widths={[400, 640, 900]} sizes="(max-width: 860px) 90vw, 30vw" />
+    <Image class="poster-img" src={poster} alt={posterAlt} widths={[400, 640, 900]} sizes="(max-width: 860px) 90vw, 30vw" />
   </div>
   <p class="card-kicker">{kicker}</p>
   <h3 class="card-title">{title}</h3>
