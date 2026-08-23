@@ -524,10 +524,11 @@ img {
 }
 
 .title-band .h1-page {
-  font-size: clamp(52px, 7vw, 120px);
-  line-height: 0.96;
-  letter-spacing: -0.025em;
+  font-size: 30px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
+
 
 .h1-page--wide {
   max-width: 26ch;
@@ -1444,4 +1445,8 @@ img {
   .caption-line span:first-child {
     opacity: 1;
   }
+}
+
+.title-band .h1-page {
+  font-size: 36px !important;
 }

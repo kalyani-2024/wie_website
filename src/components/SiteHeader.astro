@@ -15,7 +15,9 @@ const { current, variant = 'solid' } = Astro.props;
 
 <header class:list={['site-head', `site-head--${variant}`]}>
   <a class="brand" href="/">
-    <Image src={wieLogo} alt="IEEE WIE BPDC" width={92} densities={[1, 2]} />
+    <span class="brand-mark">
+      <Image src={wieLogo} alt="IEEE WIE BPDC" width={92} height={92} densities={[1, 2]} />
+    </span>
     <span class="brand-copy">
       <strong><b>W</b><b>I</b><b>E</b> BPDC</strong>
       <small>Women In Engineering</small>
@@ -31,3 +33,32 @@ const { current, variant = 'solid' } = Astro.props;
     }
   </nav>
 </header>
+
+<style>
+  .brand-mark {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 68px;
+    height: 68px;
+  }
+
+  .brand-mark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: #ffffff;
+    z-index: 0;
+  }
+
+  .brand-mark :global(img) {
+    position: relative;
+    z-index: 1;
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+  }
+</style>
