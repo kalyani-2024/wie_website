@@ -14,8 +14,9 @@ export const nav = [
 
 export type NavLabel = (typeof nav)[number]['label'];
 
-/** Google Form URL — to be supplied by the chapter. */
-export const FORM_URL = '#';
+/** Membership form — the chapter's Google Form. */
+export const FORM_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSeFnFTK5WwaR6p9gp_VXLtuCEWIgE44S-2TVZuiRzkkcgSJ1A/viewform';
 
 export const placeholders = {
   email: 'wie@dubai.bits-pilani.ac.in',
