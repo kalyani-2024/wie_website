@@ -66,27 +66,28 @@ const faqs = [
 
     <section class="section wrap">
       <h2 class="h2 h2--sm h2-rule" style="margin-bottom: 40px;">What membership gets you</h2>
-      <div class="grid-3">
-        {
-          benefits.map((benefit) => (
-            <article class="panel">
-              <p class="panel-title">{benefit.title}</p>
-              <p class="body-sm" style="line-height: 1.64;">
-                {benefit.copy}
-              </p>
-            </article>
-          ))
-        }
+      <div class="benefits-layout">
+        <div class="benefits-list">
+          {
+            benefits.map((benefit) => (
+              <article class="panel">
+                <p class="panel-title">{benefit.title}</p>
+                <p class="body-sm" style="line-height: 1.64;">
+                  {benefit.copy}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+        <div class="membership-info">
+          <Image
+            src={membershipInfo}
+            alt="WIE membership information and pricing"
+            widths={[560, 840, 1120]}
+            sizes="(max-width: 860px) calc(100vw - 96px), 36vw"
+          />
+        </div>
       </div>
-    </section>
-
-    <section class="membership-info">
-      <Image
-        src={membershipInfo}
-        alt="WIE membership information and pricing"
-        widths={[900, 1400, 1920]}
-        sizes="100vw"
-      />
     </section>
 
     <section class="section section--ruled">
@@ -123,5 +124,42 @@ const faqs = [
   .h2--sm,
   .h2--md {
     font-size: 50px;
+  }
+
+  /* Benefits down the left, poster on the right, both columns the same
+     height. The poster is letterboxed onto its own background colour
+     (sampled from the artwork) so matching the height crops nothing. */
+  .benefits-layout {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 32px;
+    align-items: stretch;
+  }
+
+  .benefits-list {
+    display: grid;
+    gap: 24px;
+  }
+
+  .membership-info {
+    background: #84599a;
+  }
+
+  .membership-info img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media (max-width: 860px) {
+    .benefits-layout {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .membership-info img {
+      height: auto;
+    }
   }
 </style>

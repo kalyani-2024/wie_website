@@ -89,17 +89,6 @@ img {
   margin: 0 auto;
 }
 
-.membership-info {
-  width: 100%;
-  background: #855aa0;
-}
-
-.membership-info img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
 /* Skip link — not in the handoff, added for keyboard users. */
 .skip-link {
   position: absolute;
