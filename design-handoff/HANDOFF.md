@@ -49,7 +49,7 @@ The files in this bundle are **design references created in HTML** — prototype
 
 **3. Events (light)**
 - `border-top: 1px solid rgba(26,18,32,.18); padding: 92px 48px`, inner `max-width: 1320px`.
-- Header row: H2 "Our events" Gloock 400 `clamp(32px, 4.4vw, 62px)`, letter-spacing `-.015em`; right-aligned link "Full archive →" 13px, letter-spacing `.18em`, uppercase, `#7A2496`. Margin-bottom `54px`.
+- Header row: H2 "Our Events" Gloock 400 `clamp(32px, 4.4vw, 62px)`, letter-spacing `-.015em`; right-aligned link "Full archive →" 13px, letter-spacing `.18em`, uppercase, `#7A2496`. Margin-bottom `54px`.
 - Grid: `repeat(3, 1fr)`, `gap: 24px`, `align-items: start`. All three cards are identical in structure and size — equal poster heights was an explicit request.
 - Each card:
   - Poster plate: `aspect-ratio: 3/4`, background `#EDE3EA`, `display: grid; place-items: center; overflow: hidden`; the poster image is `width/height: 100%` with **`object-fit: contain`**. This is deliberate — the posters are the chapter's own artwork at mixed ratios, and `cover` clipped their printed copy. Never crop them.
