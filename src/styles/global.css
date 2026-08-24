@@ -383,6 +383,7 @@ img {
 .stats > div {
   padding: 22px 28px;
   border-right: 1px solid var(--rule-dark);
+  text-align: center;
 }
 
 .stats > div:last-child {

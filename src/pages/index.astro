@@ -16,9 +16,9 @@ import btf1 from '../assets/photos/btf-1.jpg';
 import btf2 from '../assets/photos/btf-2.jpg';
 import btf3 from '../assets/photos/btf-3.jpg';
 import labSession from '../assets/photos/lab-session.png';
-import btf9 from '../assets/photos/btf-gallery-9.jpg';
-import escape4 from '../assets/photos/escape-gallery-4.png';
-import techtaboo1 from '../assets/photos/tech-taboo-1.jpg';
+import teamSession1 from '../assets/photos/team-session-1.jpg';
+import unsungHeroes1 from '../assets/photos/unsung-heroes-1.jpg';
+import escapeClues1 from '../assets/photos/escape-clues-1.jpg';
 import school1 from '../assets/photos/school-outreach-1.jpg';
 
 import beyondTheDegree from '../assets/posters/beyond-the-degree.png';
@@ -40,8 +40,8 @@ const slides = [
     delay: '0s',
   },
   {
-    photo: escape4,
-    alt: 'Teams at The Final Experiment escape room',
+    photo: escapeClues1,
+    alt: 'Solving clues at The Final Experiment escape room',
     delay: '-20.8s',
   },
   {
@@ -50,13 +50,13 @@ const slides = [
     delay: '-15.6s',
   },
   {
-    photo: btf9,
-    alt: 'Volunteers at the BTF x WIE outreach drive',
+    photo: unsungHeroes1,
+    alt: 'School students at the Unsung Heroes outreach booth',
     delay: '-10.4s',
   },
   {
-    photo: techtaboo1,
-    alt: 'A workshop session in progress',
+    photo: teamSession1,
+    alt: 'Core team working together on a chapter session',
     delay: '-5.2s',
   },
 ];
@@ -122,11 +122,10 @@ const events = [
     <SiteHeader variant="hero" />
 
     <div class="hero-copy" id="main">
-      <p class="eyebrow-dark hero-tagline" style="margin-bottom: 28px;">
-        IEEE Women in Engineering · BITS Pilani, Dubai Campus
-      </p>
-      <h1 class="h1-hero" style="font-size: 58px;">
-        Women Build.<br />Women Lead.<br />Women Empower.
+      <h1 class="h1-hero hero-title">
+        <span class="hero-line"><span class="hero-line__in"><em>Women</em> Build.</span></span>
+        <span class="hero-line"><span class="hero-line__in"><em>Women</em> Lead.</span></span>
+        <span class="hero-line"><span class="hero-line__in"><em>Women</em> Empower.</span></span>
       </h1>
       <p class="lead-dark">
         A student chapter creating opportunities through hands-on projects, competitions,
@@ -141,9 +140,11 @@ const events = [
     <div class="hero-foot">
       <div class="stats">
         {
-          stats.map((stat) => (
-            <div>
-              <p class="stat-value">{stat.value}</p>
+          stats.map((stat, i) => (
+            <div class="stat" style={`--stat-i: ${i};`}>
+              <p class="stat-value" data-count={stat.value}>
+                {stat.value}
+              </p>
               <p class="stat-label">{stat.label}</p>
             </div>
           ))
@@ -197,18 +198,135 @@ const events = [
 </Base>
 
 <style>
-  .hero-tagline {
-    font-size: 20px;
-    letter-spacing: 0.18em;
-    line-height: 1.45;
-    font-weight: 600;
-    text-transform: uppercase;
+  /* The three "Women ..." lines are the whole band now — no kicker above
+     them — so they are sized to hold each line on one line at every width. */
+  .hero-title {
+    font-size: clamp(42px, 6.2vw, 92px);
+    line-height: 0.88;
+    letter-spacing: -0.028em;
   }
 
-  @media (max-width: 860px) {
-    .hero-tagline {
-      font-size: 15px;
-      letter-spacing: 0.14em;
+  /* "Women" recedes a step so the verb reads as the beat of each line. */
+  .hero-title em {
+    font-style: normal;
+    color: rgba(242, 233, 247, 0.62);
+  }
+
+  /* The mask is the line box, so it has to be padded out past the cap
+     height and the descender of "Empower." — then pulled back in with an
+     equal negative margin so the leading is unchanged. */
+  .hero-line {
+    display: block;
+    overflow: hidden;
+    padding: 0.08em 0 0.16em;
+    margin: -0.08em 0 -0.16em;
+  }
+
+  .hero-line__in {
+    display: block;
+    transform: translateY(105%);
+    animation: heroLine 1.05s cubic-bezier(0.16, 0.84, 0.3, 1) forwards;
+  }
+
+  .hero-line:nth-child(1) .hero-line__in {
+    animation-delay: 0.18s;
+  }
+  .hero-line:nth-child(2) .hero-line__in {
+    animation-delay: 0.32s;
+  }
+  .hero-line:nth-child(3) .hero-line__in {
+    animation-delay: 0.46s;
+  }
+
+  @keyframes heroLine {
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  /* Stats rise in one at a time once the foot of the hero is on screen. */
+  .stat {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 0.84, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 0.84, 0.3, 1);
+    transition-delay: calc(var(--stat-i, 0) * 90ms);
+  }
+
+  .stats.is-in .stat {
+    opacity: 1;
+    transform: none;
+  }
+
+  .stat-value {
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-line__in {
+      transform: none;
+      animation: none;
+    }
+
+    .stat {
+      opacity: 1;
+      transform: none;
+      transition: none;
     }
   }
 </style>
+
+<script>
+  /* Stats: reveal the row and roll each number up from zero, once. */
+  const statsRow = document.querySelector<HTMLElement>('.hero-foot .stats');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (statsRow && !reduced) {
+    const values = Array.from(statsRow.querySelectorAll<HTMLElement>('.stat-value'));
+
+    /* "100+" -> ["100", "+"]; "2021" -> ["2021", ""]. Anything without a
+       leading number is left exactly as authored. */
+    const parse = (raw: string) => {
+      const match = raw.match(/^(\d+)(.*)$/);
+      return match ? { target: Number(match[1]), suffix: match[2] } : null;
+    };
+
+    const countUp = (el: HTMLElement, target: number, suffix: string) => {
+      const duration = 1100;
+      const start = performance.now();
+      const step = (now: number) => {
+        const t = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(target * eased) + suffix;
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+
+    values.forEach((el) => {
+      const parsed = parse(el.dataset.count ?? el.textContent ?? '');
+      if (parsed) el.textContent = '0' + parsed.suffix;
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          observer.disconnect();
+          statsRow.classList.add('is-in');
+          values.forEach((el, i) => {
+            const parsed = parse(el.dataset.count ?? '');
+            if (!parsed) return;
+            setTimeout(() => countUp(el, parsed.target, parsed.suffix), 90 * i);
+          });
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(statsRow);
+  } else if (statsRow) {
+    statsRow.classList.add('is-in');
+  }
+</script>
