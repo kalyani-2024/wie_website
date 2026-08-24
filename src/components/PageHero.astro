@@ -28,7 +28,102 @@ const { photo, eyebrow, tall = false, wide = false } = Astro.props;
   <div class="duo-grad--title"></div>
   <div class="wrap">
     <p class="eyebrow-dark" set:html={eyebrow} />
-    <h1 class:list={['h1-page', { 'h1-page--wide': wide }]}><slot /></h1>
+    <h1 class:list={['h1-page', { 'h1-page--wide': wide }, 'type-line']}>
+      {/* The real headline stays in the markup: it renders normally without
+          JS, reserves the exact box so nothing shifts while typing, and is
+          what a screen reader announces. The typed copy is layered over it
+          and hidden from assistive tech. */}
+      <span class="type-ghost"><slot /></span>
+      <span class="type-out" aria-hidden="true"></span>
+    </h1>
     <slot name="below" />
   </div>
 </section>
+
+
+<style>
+  .type-line {
+    position: relative;
+  }
+
+  .type-ghost {
+    display: block;
+  }
+
+  .type-out {
+    display: none;
+  }
+
+  /* Only once the script has taken over: the headline goes transparent but
+     keeps its space, and the typed copy sits on top of it. */
+  .type-line.is-typing .type-ghost {
+    opacity: 0;
+  }
+
+  .type-line.is-typing .type-out {
+    display: block;
+    position: absolute;
+    inset: 0;
+  }
+
+  .type-line.is-typing .type-out::after {
+    content: '';
+    display: inline-block;
+    width: 0.055em;
+    height: 0.78em;
+    margin-left: 0.06em;
+    vertical-align: -0.04em;
+    background: currentColor;
+    animation: caret 1.05s steps(1) infinite;
+  }
+
+  /* The caret lingers for a beat after the last letter, then goes. */
+  .type-line.is-done .type-out::after {
+    animation: none;
+    opacity: 0;
+    transition: opacity 0.4s 0.9s;
+  }
+
+  @keyframes caret {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    50.01%,
+    100% {
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  /* Type the page headline out on load. Reduced motion skips it entirely and
+     leaves the headline exactly as rendered. */
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll<HTMLElement>('.type-line').forEach((line) => {
+      const ghost = line.querySelector<HTMLElement>('.type-ghost');
+      const out = line.querySelector<HTMLElement>('.type-out');
+      if (!ghost || !out) return;
+
+      const text = (ghost.textContent ?? '').trim();
+      if (!text) return;
+
+      line.classList.add('is-typing');
+
+      let i = 0;
+      const tick = () => {
+        out.textContent = text.slice(0, (i += 1));
+        if (i < text.length) {
+          /* A touch of variance keeps it off a metronome, and spaces run
+             through quickly the way real typing does. */
+          const base = text[i - 1] === ' ' ? 24 : 34;
+          setTimeout(tick, base + Math.random() * 26);
+        } else {
+          line.classList.add('is-done');
+        }
+      };
+
+      setTimeout(tick, 280);
+    });
+  }
+</script>

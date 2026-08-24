@@ -173,6 +173,54 @@ img {
   animation: gFade 1s cubic-bezier(0.16, 0.84, 0.3, 1) both;
 }
 
+/* Scroll reveal.
+   The hidden state is written against the page's own structure, so it is in
+   force from the very first paint — nothing flashes in and back out. It is
+   gated on .has-reveal, which a small inline script in <head> sets only when
+   JS is running and the reader has not asked for reduced motion, so with JS
+   off nothing is ever hidden.
+
+   Keep this list in step with REVEAL_TARGETS in Base.astro — that script
+   observes the same elements and adds .is-in.
+
+   :where() keeps the hiding rule at a single class of specificity, so the
+   .is-in rule below outranks it. */
+.has-reveal
+  :where(
+    .photo-grid > *,
+    .gallery-grid > *,
+    .grid-3 > *,
+    .grid-4 > *,
+    .benefits-list > *,
+    .stat-strip > *,
+    dl > *,
+    .section-head,
+    .gallery-head,
+    .section .eyebrow,
+    .section .h2:not(.section-head *):not(.gallery-head *),
+    .section .lead,
+    .membership-info,
+    .cta-inner
+  ) {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+/* Photographs settle out of a slight scale rather than sliding. */
+.has-reveal
+  :where(.photo-grid > *, .gallery-grid > *, .membership-info) {
+  transform: scale(1.03);
+}
+
+.has-reveal .is-in {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.75s cubic-bezier(0.16, 0.84, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 0.84, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
 /* --------------------------------------------------------------------------
    Header
    -------------------------------------------------------------------------- */

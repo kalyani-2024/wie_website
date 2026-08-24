@@ -26,11 +26,80 @@ const { title, description } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Gloock&family=Jost:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
+    <script is:inline>
+      /* Arm the scroll reveals before first paint, so nothing is ever hidden
+         for a reader without JS or with reduced motion turned on. */
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('has-reveal');
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="page">
       <slot />
     </div>
+
+    <script>
+      /* Reveal content as it scrolls in. The hidden state lives in global.css
+         against these same selectors — keep the two lists in step. This script
+         only decides when each element arrives. */
+      const REVEAL_TARGETS = [
+        '.photo-grid > *',
+        '.gallery-grid > *',
+        '.grid-3 > *',
+        '.grid-4 > *',
+        '.benefits-list > *',
+        '.stat-strip > *',
+        'dl > *',
+        '.section-head',
+        '.gallery-head',
+        '.section .eyebrow',
+        '.section .h2:not(.section-head *):not(.gallery-head *)',
+        '.section .lead',
+        '.membership-info',
+        '.cta-inner',
+      ].join(', ');
+
+      /* Sets of siblings arrive one after another, capped so a long grid
+         never leaves the reader waiting on the last item. */
+      const STAGGER = new Set([
+        'photo-grid',
+        'gallery-grid',
+        'grid-3',
+        'grid-4',
+        'benefits-list',
+        'stat-strip',
+        'DL',
+      ]);
+
+      const targets = document.querySelectorAll<HTMLElement>(REVEAL_TARGETS);
+
+      if (targets.length && document.documentElement.classList.contains('has-reveal')) {
+        targets.forEach((el) => {
+          const parent = el.parentElement;
+          if (!parent) return;
+          const staggered =
+            STAGGER.has(parent.tagName) ||
+            Array.from(parent.classList).some((c) => STAGGER.has(c));
+          if (!staggered) return;
+          const i = Array.from(parent.children).indexOf(el);
+          if (i > 0) el.style.setProperty('--reveal-delay', `${Math.min(i, 5) * 80}ms`);
+        });
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add('is-in');
+              observer.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }
+        );
+
+        targets.forEach((el) => observer.observe(el));
+      }
+    </script>
   </body>
 </html>
